@@ -109,6 +109,10 @@ margin-bottom: 1;
   
 }
 
+#ButtonBox {
+   padding: 1em;  
+}
+
 
 /* color of the octopus #f0bdfc */
 /* color of the outline #8f414e */
