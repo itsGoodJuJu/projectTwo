@@ -58,18 +58,21 @@ app.all('/*', (req, res, next) => {
 })
 
 
-// bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
-//     // Store hash in your password DB.
-// });
+// EXAMPLE BCRYPT FUNCTIONS TO USE FOR PASSWORD HASH AND STORAGE
+let password;
+let diffPassword;
 
-// // Load hash from your password DB.
-// bcrypt.compare(myPlaintextPassword, hash, function(err, result) {
-//     // result == true
-// });
-// bcrypt.compare(someOtherPlaintextPassword, hash, function(err, result) {
-//     // result == false
-// });
+bcrypt.hash(password, saltRounds, function(err, hash) {
+    // Store hash in your password DB.
+});
 
+// Load hash from your password DB.
+bcrypt.compare(password, hash, function(err, result) {
+    // result == true
+});
+bcrypt.compare(diffPassword, hash, function(err, result) {
+    // result == false
+});
 
 
 app.get('/event', async (req, res) => {
@@ -78,43 +81,3 @@ app.get('/event', async (req, res) => {
 })
 
 
-app.post('/event', async (req, res) => {
-    console.log(req.body)
-    const {
-        name,
-        location,
-        time,
-        date,
-        description
-    } = req.body
-    let newEvent = await db.one('INSERT INTO events(name, location, time, date, description) VALUES($1, $2, $3, $4, $5) RETURNING *', [name, location, time, date, description]);
-    res.json(newEvent);
-})
-
-
-app.put('/event/:name', async (req, res) => {
-    console.log(nameInput);
-    const {name, location, time, date, description} = req.body
-    let event = await db.oneOrNone(`UPDATE events SET name = $1, location = $2, time = $3, date = $4, description = $5 WHERE name = $6 RETURNING *`, [name, location, time, date, description, nameInput]);
-    res.json(event);
-})
-
-
-app.patch('/event/:name', async (req, res) => {
-    console.log(nameInput);
-    const {name, location, time, date, description} = req.body
-    let event = await db.oneOrNone(`UPDATE events SET name = $1, location = $2, time = $3, date = $4, description = $5 WHERE name = $6 RETURNING *`, [name, location, time, date, description, nameInput]);
-    res.json(event);
-})
-
-
-app.delete('/event/:name', async (req, res) => {
-    const nameInput = (req.params.name);
-    let eventDelete = await db.query('DELETE FROM events WHERE name = $1 RETURNING *', [nameInput]);
-    res.json(eventDelete);
-})
-
-
-app.listen(3000, () => {
-    console.log('Server is running on port 3000')
-});
