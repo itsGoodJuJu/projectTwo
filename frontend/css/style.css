@@ -1,5 +1,8 @@
 body {
-    background-color: #FDFD96;
+    /* background-color: #FDFD96; */
+    background-image: url(../images/yellowBackground.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1 {
@@ -17,7 +20,7 @@ img {
 }
 
 #calendarBox {
-    border: solid 8px #8f414e;
+    border: solid 4px #8f414e;
     border-radius: 3%;
     height: 150%;
     width: 40%;
