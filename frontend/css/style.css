@@ -1,0 +1,38 @@
+.fgpasswordPage {
+    justify-content: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    text-align: center;
+    border: solid 2px black;
+    border-radius: 10px;
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-top: 10%;
+    padding-bottom: 10%;
+    background-color: white;
+}
+
+
+
+#newPW {
+    color: rgb(0, 0, 0);
+
+}
+
+#confirm {
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+/* color of the octopus #f0bdfc */
+/* color of the outline #8f414e */
+/* color of the suction cups and cheeks #f797c3 */
+/* complementary color pastel yellow #FDFD96 */
+
+
+
+
+
+

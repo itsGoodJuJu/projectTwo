@@ -3,9 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../../octopics/purpleoctopus.webp">
+    <title>Forgot Password</title>
 </head>
-<body>
+<body style="background-color: #f0bdfc">
+    <h1>EVENTACLES</h1>
+    <div class="fgpasswordPage">
+    <h1 id="title"><img src="../../octopics/purpleoctopus.webp" style="height: 80px;"> Forgot Password</h1>
+    <br><br><br><br>
+    <!-- password field, hidden on display and required to have special characters-->
+    <label for="newPW">New password:</label>
+    <input type="password" id="newPW" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+    title="Must contain at least one number and one uppercase and lowercase letter, 
+    and at least 8 or more characters" required>
+    <br><br><br><br>
+
+    <label for="newPW">Re-enter password:</label>
+    <input type="password" id="newPW" name="Password" 
+    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+    title="Must contain at least one number and one uppercase and lowercase letter, 
+    and at least 8 or more characters" required>
     
+    <button type="button" id="confirm" style="background-color: #da86ab;"> Confirm Password</button>
+
+    <!--Password Instructions-->
+    <div id="message">
+        <h3>Password must contain the following:</h3>
+        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+        <p id="number" class="invalid">A <b>number</b></p>
+        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+      </div>
+    </div>
 </body>
 </html>

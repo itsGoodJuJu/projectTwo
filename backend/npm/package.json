@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server.js"
   },
-  "author": "Justin Adams",
+  "author": "Justin Adams, Jordan Morgan, David Le",
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
