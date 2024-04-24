@@ -14,7 +14,6 @@ List of team members: David Le, Justin Adams, and Jordan Morgan!
 <img src="../projectTwo/frontend/images/Justin.png" height="150" width="150">
 <img src="../projectTwo/frontend/images/Jordan.png" height="150" width="150">
 
-
 <style>
     img {
         border-radius: 50%;
