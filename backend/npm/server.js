@@ -59,25 +59,77 @@ app.all('/*', (req, res, next) => {
 
 
 // EXAMPLE BCRYPT FUNCTIONS TO USE FOR PASSWORD HASH AND STORAGE
-let password;
-let diffPassword;
+// let password;
+// let diffPassword;
 
-bcrypt.hash(password, saltRounds, function(err, hash) {
-    // Store hash in your password DB.
-});
+// bcrypt.hash(password, saltRounds, function(err, hash) {
+//     // Store hash in your password DB.
+// });
 
-// Load hash from your password DB.
-bcrypt.compare(password, hash, function(err, result) {
-    // result == true
-});
-bcrypt.compare(diffPassword, hash, function(err, result) {
-    // result == false
-});
+// // Load hash from your password DB.
+// bcrypt.compare(password, hash, function(err, result) {
+//     // result == true
+// });
+// bcrypt.compare(diffPassword, hash, function(err, result) {
+//     // result == false
+// });
 
 
 app.get('/event', async (req, res) => {
     let event = await db.any('SELECT * FROM events');
-    res.json(event);
+    if(Object.keys(req.body).length != 0) {
+        clientError(req, "Request body is not permitted", 400);
+        // check if a body was provided in the request
+        res.status(400).json({
+            error: "Request body is not permitted"
+        });
+    } else if((Object.keys(req.query).length != 0) && (Object.keys(req.query)[0] != "id" && Object.keys(req.query)[0] != "name" && Object.keys(req.query)[0] != "location" && Object.keys(req.query)[0] != "time" && Object.keys(req.query)[0] != "date")) {
+        clientError(req, "Query parameters do not meet requirements", 400);
+        // checks if parameters other than id, name, types, etc. are passed
+        res.status(400).json({
+            error: "Query parameters do not meet requirements"
+        });
+    } else if(isNaN(req.query.id) && req.query.id != undefined) {
+        clientError(req, "Query Parameter is NaN", 400);
+        // checks to make sure that the id is a number
+        res.status(400).json({
+            error: "Query Parameter is NaN"
+        });
+    } else {
+        if(req.query.id == undefined && req.query.name == undefined && req.query.location == undefined) {
+            // check if an id was passed or not from the client
+            // if not, return all events
+            res.json(event)
+        } else if(req.query.id !== undefined) {
+            // selects data using image parameter
+            let id = req.query.id;
+            let eventId = await db.query('SELECT * FROM events WHERE id = $1', [id])
+            res.json(eventId);
+        } else if(req.query.name !== undefined) {
+            // selects data using name parameter
+            let name = req.query.name;
+            let eventName = await db.query('SELECT * FROM events WHERE name = $1', [name])
+            res.json(eventName);
+        } else if(req.query.location !== undefined) {
+            // selects data using location parameter
+            let location = req.query.location;
+            let eventLocation = await db.query('SELECT * FROM events WHERE location = $1', [location])
+            res.json(eventLocation);
+        }
+        //  else if(req.query.time !== undefined) {
+        //     // selects data using time parameter
+        //     let time = req.query.time;
+        //     let eventTime = await db.query('SELECT * FROM events WHERE time = $1', [time])
+        //     res.json(eventTime);
+        // } else if(req.query.date !== undefined) {
+        //     console.log(typeof(req.query.date));
+        //     console.log(new Date());
+        //     // selects data using date parameter
+        //     let date = req.query.date;
+        //     let eventDate = await db.query('SELECT * FROM events WHERE date = $1', [date])
+        //     res.json(eventDate);
+        // }
+    }
 })
 
 app.post('/event', async (req, res) => {
