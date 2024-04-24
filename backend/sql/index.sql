@@ -1,10 +1,13 @@
-CREATE TABLE login(
-   id SERIAL PRIMARY KEY,
-    email VARCHAR(500),
-    phone_number INTEGER
+CREATE TABLE events (
+    id SERIAL PRIMARY KEY, 
+    name VARCHAR(50) NOT NULL,
+    location VARCHAR(50) NOT NULL,
+    time TIME NOT NULL,
+    date DATE NOT NULL,
+    description VARCHAR(500) NULL
 );
 
-INSERT INTO login(email, phone_number)
-VALUES
-('davidle241872@yahoo.com', 404-936-0767),
-('jordanLeBron@yahoo.com', 215-632-1234);
+INSERT INTO events (name, location, time, date, description)
+VALUES ('Mother''s Day', 'KPOT', '12:00:00', '2024-05-12', null),
+('Memorial Day', 'Home', '09:00:00', '2024-05-27', 'Stay at home and relax!')
+RETURNING *;
