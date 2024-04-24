@@ -108,3 +108,15 @@ app.patch('/event/:name', async (req, res) => {
     let event = await db.oneOrNone(`UPDATE events SET name = $1, location = $2, time = $3, date = $4, description = $5 WHERE name = $6 RETURNING *`, [name, location, time, date, description, nameInput]);
     res.json(event);
 })
+
+
+app.delete('/event/:name', async (req, res) => {
+    const nameInput = (req.params.name);
+    let eventDelete = await db.query('DELETE FROM events WHERE name = $1 RETURNING *', [nameInput]);
+    res.json(eventDelete);
+})
+
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000')
+});
