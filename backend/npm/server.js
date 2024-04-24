@@ -80,4 +80,15 @@ app.get('/event', async (req, res) => {
     res.json(event);
 })
 
-
+app.post('/event', async (req, res) => {
+    console.log(req.body)
+    const {
+        name,
+        location,
+        time,
+        date,
+        description
+    } = req.body
+    let newEvent = await db.one('INSERT INTO events(name, location, time, date, description) VALUES($1, $2, $3, $4, $5) RETURNING *', [name, location, time, date, description]);
+    res.json(newEvent);
+})
