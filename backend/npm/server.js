@@ -100,3 +100,11 @@ app.put('/event/:name', async (req, res) => {
     let event = await db.oneOrNone(`UPDATE events SET name = $1, location = $2, time = $3, date = $4, description = $5 WHERE name = $6 RETURNING *`, [name, location, time, date, description, nameInput]);
     res.json(event);
 })
+
+
+app.patch('/event/:name', async (req, res) => {
+    console.log(nameInput);
+    const {name, location, time, date, description} = req.body
+    let event = await db.oneOrNone(`UPDATE events SET name = $1, location = $2, time = $3, date = $4, description = $5 WHERE name = $6 RETURNING *`, [name, location, time, date, description, nameInput]);
+    res.json(event);
+})
