@@ -92,3 +92,11 @@ app.post('/event', async (req, res) => {
     let newEvent = await db.one('INSERT INTO events(name, location, time, date, description) VALUES($1, $2, $3, $4, $5) RETURNING *', [name, location, time, date, description]);
     res.json(newEvent);
 })
+
+
+app.put('/event/:name', async (req, res) => {
+    console.log(nameInput);
+    const {name, location, time, date, description} = req.body
+    let event = await db.oneOrNone(`UPDATE events SET name = $1, location = $2, time = $3, date = $4, description = $5 WHERE name = $6 RETURNING *`, [name, location, time, date, description, nameInput]);
+    res.json(event);
+})
