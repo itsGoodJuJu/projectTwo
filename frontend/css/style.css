@@ -7,7 +7,6 @@ body {
 
 h1 {
     color: #f0bdfc;
-    font-family: comic sans ms;
     font-size: 225%;
     -webkit-text-stroke: 1.5px #8f414e
 }
@@ -22,13 +21,13 @@ img {
 #calendarBox {
     border: solid 4px #8f414e;
     border-radius: 2%;
-    width: 35%;
-    padding-top: 2%;
+    width: 40%;
+    padding-top: 1%;
     padding-left: 1%;
-    padding-right: 3%;
+    padding-right: 1%;
     margin-left: 30%;
     margin-top: -5.5%;
-    
+
     background-color: #f0bdfc;
 }
 
@@ -114,9 +113,9 @@ button {
 
 
 .containerSearch {
-    max-width: 300px;
+    max-width: 200px;
     margin: 20px auto;
-    float: left;
+    float: right;
     padding: 3px;
     background-color: #ffffff;
     border-radius: 18px;
@@ -158,6 +157,11 @@ textarea {
 .submit-btn:hover {
     background-color: #f797c3;
 }
+
+.eventForm {
+flex:absolute;
+}
+
 
 
 

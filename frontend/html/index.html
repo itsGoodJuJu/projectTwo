@@ -6,110 +6,65 @@
     <title>Eventacles</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
     <div>
         <h1><img src="../images/octoLogo.webp" alt=""> EVENTACLES </h1>
     
+        
+    
 <div class="search-container">
-    <input type="text" id="searchInput" class="searchButton" placeholder="Enter your event here">
+    <input type="text" id="searchInput" class="searchButton" placeholder="Search your event here">
     <button id="searchButton" class="search-button">Search</button>
 </div>
     <div class="containerEvent">
-        <div class="eventForm">
-    </div>
-    <div class="containerSearch">
-        <form id="eventForm">
-            <div class="eventForm">
-                <label for="eventName">Name:</label>
-                <input type="text" id="eventName" name="eventName" required>
-            </div>
-            <div class="eventForm">
-                <label for="eventLocation">Location:</label>
-                <input type="text" id="eventLocation" name="eventLocation" required>
-            </div>
-            <div class="eventForm">
-                <label for="eventDateTime">Date and Time:</label>
-                <input type="datetime-local" id="eventDateTime" name="eventDateTime" required>
-            </div>
-            <div class="eventForm">
-                <label for="eventDescription">Description:</label>
-                <textarea id="eventDescription" name="eventDescription" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
-    </div>
-
+        <div class="eventForm">   
 
     <div id="calendarBox">
-        <button id="updateEvents">Update Events</button>
-            <div class="navigation">
-            <button id="prevMonthBtn">&#9664;</button> <!-- Left arrow -->
-            <button id="nextMonthBtn">&#9654;</button> <!-- Right arrow -->
-            <div class="month">
-                <strong>April</strong>
-                <strong>2020</strong>
-            <table>
-                <tr>
-                  <th>Sun</th>
-                  <th>Mon</th>
-                  <th>Tue</th>
-                  <th>Wed</th>
-                  <th>Thu</th>
-                  <th>Fri</th>
-                  <th>Sat</th>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>2</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>5</td>
-                  <td>6</td>
-                  <td>7</td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>9</td>
-                  <td>10</td>
-                  <td>11</td>
-                  <td>12</td>
-                  <td>13</td>
-                  <td>14</td>
-                </tr>
-                <tr>
-                  <td>15</td>
-                  <td>16</td>
-                  <td>17</td>
-                  <td>18</td>
-                  <td>19</td>
-                  <td>20</td>
-                  <td>21</td>
-                </tr>
-                <tr>
-                  <td>22</td>
-                  <td>23</td>
-                  <td>24</td>
-                  <td>25</td>
-                  <td>26</td>
-                  <td>27</td>
-                  <td>28</td>
-                </tr>
-                <tr>
-                  <td>29</td>
-                  <td>30</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-            </table>
-      </table>
-            </div>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script> 
+
+</head>
+ <body>
+  <h2>Event calendar</h2>
+  <div class="containerCalendar">
+   <div id="calendar"></div>
+  </div>
+  <br>
+</body>
+
+<div class="containerSearch">
+    <form id="eventForm">
+        <div class="eventForm">
+            <label for="eventLocation">Event:</label>
+            <input type="text" id="eventLocation" name="eventLocation" required>
+        </div>
+        <div class="eventForm">
+            <label for="eventDateTime">Date and Time:</label>
+            <input type="datetime-local" id="eventDateTime" name="eventDateTime" required>
+        </div>
+        <div class="eventForm">
+            <label for="eventDescription">Description:</label>
+            <textarea id="eventDescription" name="eventDescription" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+ </div>
+</html>
+<script>
+   $(document).ready(function() {
+   $('#calendar').fullCalendar();
+});
+</script>
         
         <script src="script.js"></script>
     
 </body>
+
+
 
 </html>
 
