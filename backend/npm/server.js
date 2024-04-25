@@ -132,6 +132,8 @@ app.get('/event', async (req, res) => {
     }
 })
 
+
+// POST ENDPOINT
 app.post('/event', async (req, res) => {
     if((!req.body|| typeof(req.body) !== 'object') || (!'name' in req.body || typeof(req.body.name) !== 'string') || (!'location' in req.body || typeof(req.body.location) !== 'string') || (!'time' in req.body || (typeof(req.body.time) !== 'string')) || (!'date' in req.body || typeof(req.body.date) !== 'string') || (!'description' in req.body || (typeof(req.body.description) !== 'string' && typeof(req.body.description) !== 'null'))){
         res.statusCode = 400
