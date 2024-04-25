@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>  
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale1.0">
-    <title>Login Page Eventacles</title>
-        <link rel="stylesheet" href="../css/signUpPage.css">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self';"/> -->
+    <title>Sign-Up Eventacles</title>
+        <link rel="stylesheet" href="../css/signUp.css">
     
 </head>
 <body>
     <div class="login-box">
     <div id="ContainerBox">
             <img src="../images/octoLogo.webp" height="90" width="100">
-            <h3 id="header"> OCTOVENT Sign Up Page</h3>
+            <h3 class="header"> EVENTACLES</h3>
+            <h3>Create a New Account</h3>
 
 </div>
       <!--use span to add a line between "or" to separate -->
-    <form>
+    <form onsubmit="signUp()">
         <div id="inputChange">
-            <input type="text" placeholder="First Name">
-            <input type="text" placeholder="Last Name">
-            <input type="text" placeholder="Email here">
-            <input type="text" placeholder="password here">        
-        <button id>Sign Up</button>
-      </div>
-      </form>
+            <input type="text" placeholder="First Name" class="name-control">
+            <input type="text" placeholder="Last Name" class="lastName-control">
+            <input type="email" placeholder="Email here" class="email-control">
+            <input type="password" placeholder="Password here" class="form-control" id="password">        
+            <button type="submit">Sign Up</button>
+        </div>
+    </form>
 <!-- Always add <a href= add a link here" > "add text that goes into the link"-->
-      <p>Already have an account? <a href="projectTwo/frontend/html/LoginPage.html">Sign in now</a>
+      <p>Already have an account? <a href="./login.html">Sign in now</a>
       </div>
+<script src="../../backend/npm/helper.js"></script>
+<!-- <script src="../../backend/javascript/login.js"></script> -->
 </body>
 </html>
