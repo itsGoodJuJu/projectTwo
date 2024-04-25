@@ -87,3 +87,45 @@ input {
 
 
 
+
+body {
+    /* background-color: #FDFD96; */
+    background-image: url(../images/yellowBackground.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    color: #f0bdfc;
+    font-family: comic sans ms;
+    font-size: 350%;
+    -webkit-text-stroke: 1.5px #8f414e
+}
+
+img {
+    height: 5%;
+    width: 5%;
+    margin-bottom: -1%;
+    margin-top: -1%;
+}
+
+#calendarBox {
+    border: solid 4px #8f414e;
+    border-radius: 3%;
+    height: 150%;
+    width: 40%;
+    padding-top: 47%;
+    padding-left: 15%;
+    padding-right: 10%;
+    margin-left: 30%;
+    margin-top: -5.5%;
+    
+    background-color: #f0bdfc;
+}
+
+
+/* color of the octopus purple #f0bdfc */
+/* color of the outline amaranth or maroon #8f414e */
+/* color of the suction cups and cheeks pink #f797c3 */
+/* complementary color pastel yellow #FDFD96 */
+
