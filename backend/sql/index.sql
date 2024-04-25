@@ -31,8 +31,6 @@ CREATE TABLE loginInfo (
 
 INSERT INTO loginInfo (email, username, password, name, phoneNumber, address, city, state, birthday)
 
-INSERT INTO events (email, username, password, name, phoneNumber, address, city, state, birthday)
-
 VALUES ('justinladams88@gmail.com', 'itsGoodJuJu', 'password1234', 'Justin Adams', 7708235063, '482 Spring Road', 'Atlanta', 'GA', '30301', '1996-03-01'),
 ('jordandmorgan24@gmail.com', 'moneywayjo', 'lakersIn6', 'Jordan Morgan', 4048231234, '3001 Marvel Court', 'Atlanta', 'GA', '30341', '2004-12-22')
 RETURNING *;
