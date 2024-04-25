@@ -21,8 +21,3 @@ List of team members: David Le, Justin Adams, and Jordan Morgan!
 
 </style>
 
-
-
-  
-
-

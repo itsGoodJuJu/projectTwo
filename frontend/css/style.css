@@ -1,0 +1,171 @@
+body {
+    /* background-color: #FDFD96; */
+    background-image: url(../images/yellowBackground.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    color: #f0bdfc;
+    font-family: comic sans ms;
+    font-size: 225%;
+    -webkit-text-stroke: 1.5px #8f414e
+}
+
+img {
+    height: 5%;
+    width: 5%;
+    margin-bottom: -1%;
+    margin-top: -1%;
+}
+
+#calendarBox {
+    border: solid 4px #8f414e;
+    border-radius: 2%;
+    width: 35%;
+    padding-top: 2%;
+    padding-left: 1%;
+    padding-right: 3%;
+    margin-left: 30%;
+    margin-top: -5.5%;
+    
+    background-color: #f0bdfc;
+}
+
+#calendar {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.navigation {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#calendarBox {
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+td, th {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.month {
+    text-align: center;
+    background-color: white;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: black;
+    border: 4px solid #8f414e;
+}
+
+ .search-container {
+            margin-bottom: 1px;
+            border-left: 1%;
+            float:right;
+            flex:auto;
+            padding: 10px;
+            left: 10%;
+ }
+
+ .search-container {
+    display: flex;
+    float: right;
+    align-items: center;
+}
+
+.search-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px; /* Rounded left corners */
+    flex: 1; /* Take remaining space */
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #f797c3; 
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 0 5px 5px 0; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #f797c3; 
+}
+
+
+.containerSearch {
+    max-width: 300px;
+    margin: 20px auto;
+    float: left;
+    padding: 3px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: 3%;
+}
+
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+textarea {
+    width: calc(100% - 12px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 20px;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #f797c3;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+.submit-btn:hover {
+    background-color: #f797c3;
+}
+
+
+
+
+
+
+
+/* color of the octopus purple #f0bdfc */
+/* color of the outline amaranth or maroon #8f414e */
+/* color of the suction cups and cheeks pink #f797c3 */
+/* complementary color pastel yellow #FDFD96 */

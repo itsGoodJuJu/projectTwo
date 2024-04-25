@@ -8,24 +8,13 @@
 body{
    background:#2c3642}
 
-.login-box{
 
    /* the back ground is white due to #fff and black is #000000( six_0's)for the second container */
 
 
 /* black = 000000  / white is #fff */
 /* padding - changing within the second container */
-   background: #fff;
-   padding: 60px 150px;
-   width: 585px;
-   position: absolute;
-   top: 40%;
-   left: 50%;
-   transform: translate(-50%,-40%);
-   /* this would center or move the container to the middle of the website (position->transform) + use text-align afterwards */
-   text-align: center;
-   border-radius: 10px;
-}
+
 .logo{
    width: 50px;
    margin-bottom: 20px;
