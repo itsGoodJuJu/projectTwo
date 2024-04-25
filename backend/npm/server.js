@@ -162,17 +162,25 @@ app.put('/event/:name', async (req, res) => {
 })
 
 
-// app.patch('/event/:name', async (req, res) => {
-//     if((!req.body|| typeof(req.body) !== 'object') || (!'name' in req.body || typeof(req.body.name) !== 'string') || (!'location' in req.body || typeof(req.body.location) !== 'string') || (!'time' in req.body || (typeof(req.body.time) !== 'string')) || (!'date' in req.body || typeof(req.body.date) !== 'string') || (!'description' in req.body || (typeof(req.body.description) !== 'string' && typeof(req.body.description) !== 'null'))){
-//         res.statusCode = 400
-//         res.json({error: "Invalid body Parameters"})
-//     } else {
-//         console.log(nameInput);
-//         const {name, location, time, date, description} = req.body
-//         let event = await db.oneOrNone(`UPDATE events SET name = $1, location = $2, time = $3, date = $4, description = $5 WHERE name = $6 RETURNING *`, [name, location, time, date, description, nameInput]);
-//         res.json(event);
-//     }
-// })
+
+// PATCH SECURITY 
+/*
+Endpoint: 
+    PATCH: updates a value of an event entry; if a name is provided, only entries with that name are returned
+Query Parameters:
+    name[string]: name of the event entry
+*/
+app.patch('/event/:name', async (req, res) => {
+    if((!req.body|| typeof(req.body) !== 'object') || (!'name' in req.body || typeof(req.body.name) !== 'string') || (!'location' in req.body || typeof(req.body.location) !== 'string') || (!'time' in req.body || (typeof(req.body.time) !== 'string')) || (!'date' in req.body || typeof(req.body.date) !== 'string') || (!'description' in req.body || (typeof(req.body.description) !== 'string' && typeof(req.body.description) !== 'null'))){
+        res.statusCode = 400
+        res.json({error: "Invalid body Parameters"})
+    } else {
+        console.log(nameInput);
+        const {name, location, time, date, description} = req.body
+        let event = await db.oneOrNone(`UPDATE events SET name = $1, location = $2, time = $3, date = $4, description = $5 WHERE name = $6 RETURNING *`, [name, location, time, date, description, nameInput]);
+        res.json(event);
+    }
+})
 
 
 // app.delete('/event/:name', async (req, res) => {
