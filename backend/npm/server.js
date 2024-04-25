@@ -145,45 +145,45 @@ app.post('/event', async (req, res) => {
 })
 
 
-app.put('/event/:name', async (req, res) => {
-    if((!req.body|| typeof(req.body) !== 'object') || (!'name' in req.body || typeof(req.body.name) !== 'string') || (!'location' in req.body || typeof(req.body.location) !== 'string') || (!'time' in req.body || (typeof(req.body.time) !== 'string')) || (!'date' in req.body || typeof(req.body.date) !== 'string') || (!'description' in req.body || (typeof(req.body.description) !== 'string' && typeof(req.body.description) !== 'null'))){
-        res.statusCode = 400
-        res.json({error: "Invalid body Parameters"})
-    } else {
-        console.log(nameInput);
-        const {name, location, time, date, description} = req.body
-        let event = await db.oneOrNone(`UPDATE events SET name = $1, location = $2, time = $3, date = $4, description = $5 WHERE name = $6 RETURNING *`, [name, location, time, date, description, nameInput]);
-        res.json(event);
-    }
-})
+// app.put('/event/:name', async (req, res) => {
+//     if((!req.body|| typeof(req.body) !== 'object') || (!'name' in req.body || typeof(req.body.name) !== 'string') || (!'location' in req.body || typeof(req.body.location) !== 'string') || (!'time' in req.body || (typeof(req.body.time) !== 'string')) || (!'date' in req.body || typeof(req.body.date) !== 'string') || (!'description' in req.body || (typeof(req.body.description) !== 'string' && typeof(req.body.description) !== 'null'))){
+//         res.statusCode = 400
+//         res.json({error: "Invalid body Parameters"})
+//     } else {
+//         console.log(nameInput);
+//         const {name, location, time, date, description} = req.body
+//         let event = await db.oneOrNone(`UPDATE events SET name = $1, location = $2, time = $3, date = $4, description = $5 WHERE name = $6 RETURNING *`, [name, location, time, date, description, nameInput]);
+//         res.json(event);
+//     }
+// })
 
 
-app.patch('/event/:name', async (req, res) => {
-    if((!req.body|| typeof(req.body) !== 'object') || (!'name' in req.body || typeof(req.body.name) !== 'string') || (!'location' in req.body || typeof(req.body.location) !== 'string') || (!'time' in req.body || (typeof(req.body.time) !== 'string')) || (!'date' in req.body || typeof(req.body.date) !== 'string') || (!'description' in req.body || (typeof(req.body.description) !== 'string' && typeof(req.body.description) !== 'null'))){
-        res.statusCode = 400
-        res.json({error: "Invalid body Parameters"})
-    } else {
-        console.log(nameInput);
-        const {name, location, time, date, description} = req.body
-        let event = await db.oneOrNone(`UPDATE events SET name = $1, location = $2, time = $3, date = $4, description = $5 WHERE name = $6 RETURNING *`, [name, location, time, date, description, nameInput]);
-        res.json(event);
-    }
-})
+// app.patch('/event/:name', async (req, res) => {
+//     if((!req.body|| typeof(req.body) !== 'object') || (!'name' in req.body || typeof(req.body.name) !== 'string') || (!'location' in req.body || typeof(req.body.location) !== 'string') || (!'time' in req.body || (typeof(req.body.time) !== 'string')) || (!'date' in req.body || typeof(req.body.date) !== 'string') || (!'description' in req.body || (typeof(req.body.description) !== 'string' && typeof(req.body.description) !== 'null'))){
+//         res.statusCode = 400
+//         res.json({error: "Invalid body Parameters"})
+//     } else {
+//         console.log(nameInput);
+//         const {name, location, time, date, description} = req.body
+//         let event = await db.oneOrNone(`UPDATE events SET name = $1, location = $2, time = $3, date = $4, description = $5 WHERE name = $6 RETURNING *`, [name, location, time, date, description, nameInput]);
+//         res.json(event);
+//     }
+// })
 
 
-app.delete('/event/:name', async (req, res) => {
-    if(Object.keys(req.body).length != 0) {
-        clientError(req, "Request body is not permitted", 400);
-        // check if a body was provided in the request
-        res.status(400).json({
-            error: "Request body is not permitted"
-        });
-    } else {
-        const nameInput = (req.params.name);
-        let eventDelete = await db.query('DELETE FROM events WHERE name = $1 RETURNING *', [nameInput]);
-        res.json(eventDelete);
-    }
-})
+// app.delete('/event/:name', async (req, res) => {
+//     if(Object.keys(req.body).length != 0) {
+//         clientError(req, "Request body is not permitted", 400);
+//         // check if a body was provided in the request
+//         res.status(400).json({
+//             error: "Request body is not permitted"
+//         });
+//     } else {
+//         const nameInput = (req.params.name);
+//         let eventDelete = await db.query('DELETE FROM events WHERE name = $1 RETURNING *', [nameInput]);
+//         res.json(eventDelete);
+//     }
+// })
 
 
 app.listen(3000, () => {
