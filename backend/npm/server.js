@@ -3,9 +3,15 @@ const pgp = require('pg-promise')();
 const winston = require('winston');
 const express = require('express');
 const bcrypt = require('bcrypt');
+const router = express.Router();
+const path = require('path')
+const { expressCspHeader, INLINE, NONE, SELF } = require('express-csp-header');
 
 
 const app = express()
+app.use('/static', express.static(path.join(__dirname, 'public')))
+
+
 const db = pgp('postgres://qiykkuwe:YZMdje9GHyZ-slGkXpFUHx_YvcQluy_8@ziggy.db.elephantsql.com/qiykkuwe');
 const bodyParser = require("body-parser") // for parsing application/json
 app.use(bodyParser.json())
@@ -58,21 +64,6 @@ app.all('/*', (req, res, next) => {
 })
 
 
-// EXAMPLE BCRYPT FUNCTIONS TO USE FOR PASSWORD HASH AND STORAGE
-// let password;
-// let diffPassword;
-
-// bcrypt.hash(password, saltRounds, function(err, hash) {
-//     // Store hash in your password DB.
-// });
-
-// // Load hash from your password DB.
-// bcrypt.compare(password, hash, function(err, result) {
-//     // result == true
-// });
-// bcrypt.compare(diffPassword, hash, function(err, result) {
-//     // result == false
-// });
 
 
 /*
@@ -152,6 +143,7 @@ Body:
     description[string]: description of the event (can be null)
 */
 app.post('/event', async (req, res) => {
+    console.log("Event called")
     if((!req.body|| typeof(req.body) !== 'object') || (!'name' in req.body || typeof(req.body.name) !== 'string') || (!'location' in req.body || typeof(req.body.location) !== 'string') || (!'time' in req.body || (typeof(req.body.time) !== 'string')) || (!'date' in req.body || typeof(req.body.date) !== 'string') || (!'description' in req.body || (typeof(req.body.description) !== 'string' && typeof(req.body.description) !== 'null'))){
         res.statusCode = 400
         res.json({error: "Invalid body Parameters"})
@@ -162,6 +154,26 @@ app.post('/event', async (req, res) => {
         res.json(newEvent);
     }
 })
+
+
+
+app.post('/login', async (req, res) => {
+    // let outputPassword = document.querySelector('.form-control'); 
+    // let outputFirstName = document.querySelector('.name-control'); 
+    // let outputLastName = document.querySelector('.lastName-control'); 
+    // let outputEmail = document.querySelector('.email-control'); 
+    // // Get the value of the input field 
+    // let passwordInput = outputPassword.value; 
+    // console.log(passwordInput);
+    // let firstInput = outputFirstName.value;
+    // let lastInput = outputLastName.value;
+    // let emailInput = outputEmail.value;
+
+
+    console.log(req.body)
+    let newUser = await db.many('INSERT INTO loginInfo (email, password, firstName, lastName) VALUES ($1, $2, $3, $4) RETURNING *', [req.body.emailInput, req.body.passwordInput, req.body.firstInput, req.body.lastInput]); 
+     }
+)
 
 
 
@@ -240,3 +252,23 @@ app.delete('/event/:name', async (req, res) => {
 app.listen(3000, () => {
     console.log('Server is running on port 3000')
 });
+
+
+
+
+
+// EXAMPLE BCRYPT FUNCTIONS TO USE FOR PASSWORD HASH AND STORAGE
+// let password;
+// let diffPassword;
+
+// bcrypt.hash(password, saltRounds, function(err, hash) {
+//     // Store hash in your password DB.
+// });
+
+// // Load hash from your password DB.
+// bcrypt.compare(password, hash, function(err, result) {
+//     // result == true
+// });
+// bcrypt.compare(diffPassword, hash, function(err, result) {
+//     // result == false
+// });
