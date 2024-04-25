@@ -75,6 +75,14 @@ app.all('/*', (req, res, next) => {
 // });
 
 
+/*
+Endpoint: 
+    GET: returns a list of all event entries; if an id, name, or location is provided, only a events with the corresponding value are returned
+Query Parameters:
+    id[number]: assigned number of the pokedex entry
+    name[string]: name of event to be added
+    location[string]: name of location at which the event will take place
+*/
 app.get('/event', async (req, res) => {
     let event = await db.any('SELECT * FROM events');
     if(Object.keys(req.body).length != 0) {
@@ -133,7 +141,16 @@ app.get('/event', async (req, res) => {
 })
 
 
-// POST ENDPOINT
+/*
+Endpoint: 
+    POST: creates an entire event entry to the calendar
+Body:
+    name[string](required): name of event to be added
+    location[string](required): name of location at which the event will take place
+    time[string](required): start time of the event (format: HH:MM:SS)
+    date[string](required): date on which the even will take place (format: YYYY-MM-DD)
+    description[string]: description of the event (can be null)
+*/
 app.post('/event', async (req, res) => {
     if((!req.body|| typeof(req.body) !== 'object') || (!'name' in req.body || typeof(req.body.name) !== 'string') || (!'location' in req.body || typeof(req.body.location) !== 'string') || (!'time' in req.body || (typeof(req.body.time) !== 'string')) || (!'date' in req.body || typeof(req.body.date) !== 'string') || (!'description' in req.body || (typeof(req.body.description) !== 'string' && typeof(req.body.description) !== 'null'))){
         res.statusCode = 400
@@ -148,7 +165,18 @@ app.post('/event', async (req, res) => {
 
 
 
-// PUT SECURITY
+/*
+Endpoint: 
+    PUT: updates an entire event entry; if a name is provided, only entries with that name are updated
+Query Parameters:
+    name[string]: name of the event entry
+Body:
+    name[string](required): name of event to be added
+    location[string](required): name of location at which the event will take place
+    time[string](required): start time of the event (format: HH:MM:SS)
+    date[string](required): date on which the even will take place (format: YYYY-MM-DD)
+    description[string]: description of the event (can be null)
+*/
 app.put('/event/:name', async (req, res) => {
     if((!req.body|| typeof(req.body) !== 'object') || (!'name' in req.body || typeof(req.body.name) !== 'string') || (!'location' in req.body || typeof(req.body.location) !== 'string') || (!'time' in req.body || (typeof(req.body.time) !== 'string')) || (!'date' in req.body || typeof(req.body.date) !== 'string') || (!'description' in req.body || (typeof(req.body.description) !== 'string' && typeof(req.body.description) !== 'null'))){
         res.statusCode = 400
@@ -162,13 +190,17 @@ app.put('/event/:name', async (req, res) => {
 })
 
 
-
-// PATCH SECURITY 
 /*
 Endpoint: 
     PATCH: updates a value of an event entry; if a name is provided, only entries with that name are returned
 Query Parameters:
     name[string]: name of the event entry
+Body:
+    name[string](required): name of event to be added
+    location[string](required): name of location at which the event will take place
+    time[string](required): start time of the event (format: HH:MM:SS)
+    date[string](required): date on which the even will take place (format: YYYY-MM-DD)
+    description[string]: description of the event (can be null)
 */
 app.patch('/event/:name', async (req, res) => {
     if((!req.body|| typeof(req.body) !== 'object') || (!'name' in req.body || typeof(req.body.name) !== 'string') || (!'location' in req.body || typeof(req.body.location) !== 'string') || (!'time' in req.body || (typeof(req.body.time) !== 'string')) || (!'date' in req.body || typeof(req.body.date) !== 'string') || (!'description' in req.body || (typeof(req.body.description) !== 'string' && typeof(req.body.description) !== 'null'))){
@@ -183,19 +215,26 @@ app.patch('/event/:name', async (req, res) => {
 })
 
 
-// app.delete('/event/:name', async (req, res) => {
-//     if(Object.keys(req.body).length != 0) {
-//         clientError(req, "Request body is not permitted", 400);
-//         // check if a body was provided in the request
-//         res.status(400).json({
-//             error: "Request body is not permitted"
-//         });
-//     } else {
-//         const nameInput = (req.params.name);
-//         let eventDelete = await db.query('DELETE FROM events WHERE name = $1 RETURNING *', [nameInput]);
-//         res.json(eventDelete);
-//     }
-// })
+
+/*
+Endpoint: 
+    DELETE: deletes an event entry or multiple event entries; if a name is provided, only entries with that name are deleted
+Query Parameters:
+    name[string]: name of the event entry
+*/
+app.delete('/event/:name', async (req, res) => {
+    if(Object.keys(req.body).length != 0) {
+        clientError(req, "Request body is not permitted", 400);
+        // check if a body was provided in the request
+        res.status(400).json({
+            error: "Request body is not permitted"
+        });
+    } else {
+        const nameInput = (req.params.name);
+        let eventDelete = await db.query('DELETE FROM events WHERE name = $1 RETURNING *', [nameInput]);
+        res.json(eventDelete);
+    }
+})
 
 
 app.listen(3000, () => {
