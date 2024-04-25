@@ -6,7 +6,11 @@
  }
   
  body{
-    background:#2c3642}
+    /* background:#2c3642 */
+   background-image: url(../images/mauveBackground.avif);
+   background-repeat: no-repeat;
+   background-size: cover;
+   }
  
  .login-box{
  
@@ -82,8 +86,8 @@
  color:#000;
  }
  /* this is for the "next button" */
- .login-box form button{
- background: rgb(209, 113, 129);
+ .login-box #inputChange button{
+ background: #f797c3;
  color: #fff;
  border: 0;
  margin-bottom: 1;

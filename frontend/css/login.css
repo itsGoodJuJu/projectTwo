@@ -6,7 +6,11 @@
 }
  
 body{
-   background:#2c3642}
+   /* background:#2c3642 */
+   background-image: url(../images/mauveBackground.avif);
+   background-repeat: no-repeat;
+   background-size: cover;
+}
 
 
    /* the back ground is white due to #fff and black is #000000( six_0's)for the second container */
@@ -72,7 +76,7 @@ color:#000;
 }
 /* this is for the "next button" */
 .login-box form button{
-background: rgb(209, 113, 129);
+background: #f797c3;
 color: #fff;
 border: 0;
 margin-bottom: 1;
