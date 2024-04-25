@@ -3,6 +3,10 @@ const pgp = require('pg-promise')();
 const winston = require('winston');
 const express = require('express');
 const bcrypt = require('bcrypt');
+const  swaggerUI = require('swagger-ui-express')
+const YAML = require('yamljs');
+ const swaggerJsDocs = YAML.load('./api.yaml')
+
 
 
 const app = express()
@@ -10,6 +14,9 @@ const db = pgp('postgres://qiykkuwe:YZMdje9GHyZ-slGkXpFUHx_YvcQluy_8@ziggy.db.el
 const bodyParser = require("body-parser") // for parsing application/json
 app.use(bodyParser.json())
 let saltRounds = 10;
+
+app.use("/api-docs", swaggerUI.serve,swaggerUI.setup(swaggerJsDocs))
+
 
 
 const logger = winston.createLogger({

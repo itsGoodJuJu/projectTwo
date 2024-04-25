@@ -1,0 +1,123 @@
+swagger: "2.0"
+info: 
+  title: This is our Event API 
+   description: This is a todo list
+  version: 1.0
+  contact:
+    email: davidle241872@yahoo.com
+  servers:
+    -url: "http://localhost:3000/api-docs/"
+    description: This is my local server
+
+  schemes: [http, https]
+
+
+paths:
+ /event:
+  post:
+   summary: Adds a event to the list
+   description: Adds a event to the list. If a list parameter is provided it add multiple todos in one call.
+   produces:
+    - application/json
+   consumes:
+    - application/json
+   parameters:
+   - in: body
+     name: body
+     description: Object containing the list of todos
+     required: true
+     schema:
+      type: object
+      properties:
+       list:
+        type: array
+        items:
+         $ref: '#/definitions/event'
+   responses: 
+      200:
+       description: event list posted
+      400:
+       description: Bad Request
+
+
+
+  get:
+      summary: Returns a event list
+      description: Returns a list of all event, if an id is provided, only a single todo is returned
+      parameters:
+      - name: id
+        in: query
+        description: ID of the todo
+        required: false 
+        type: integer
+      responses:
+       200:
+        description: Todo list retrieved
+       400: 
+        description: Bad request
+
+
+
+
+ /event/{id}:
+  delete:
+   summary: deletes a event
+   description: Deletes a event from the list
+   parameters:
+    - name: id
+      in: path
+      required: true
+      description: The id of the event to delete
+      type: integer
+   responses:
+    200:
+      description: event deleted
+      # 400: description: Invalid ID
+  
+
+  put:
+    summary: Updates an existing event and modifies its data
+    description: the id of task to be updated in the eventlist
+    produces:
+      - application/json
+    consumes:
+      - application/json
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: the id of the task to be updated
+      type: integer
+    - in: body
+      name: body
+      required: true
+      schema:
+       type: object
+       properties:
+        event:
+         type: string
+        completed:
+         type: boolean
+    responses:
+     200:
+      description: Todo updated
+     400:
+      description: Bad request
+
+
+
+
+ 
+    
+
+
+definitions:
+ event:
+  type: object
+  properties:
+   id:
+    type: integer
+   todo:
+    type: string
+   completed:
+    type: boolean

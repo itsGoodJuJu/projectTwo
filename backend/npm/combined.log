@@ -1,0 +1,9 @@
+{"body":{},"endpoint":"/event","ip":"::1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-04-25T14:38:24.128Z"}
+{"body":{},"endpoint":"/","ip":"::1","level":"info","method":"GET","path_parameters":{"0":""},"query_parameters":{},"timestamp":"2024-04-25T15:21:48.543Z"}
+{"body":{"list":[{"completed":true,"id":0,"todo":"string"}]},"endpoint":"/todo","ip":"::1","level":"info","method":"POST","path_parameters":{"0":"todo"},"query_parameters":{},"timestamp":"2024-04-25T15:23:28.616Z"}
+{"body":{},"endpoint":"/todo","ip":"::1","level":"info","method":"GET","path_parameters":{"0":"todo"},"query_parameters":{"id":"1"},"timestamp":"2024-04-25T15:31:08.057Z"}
+{"body":{},"endpoint":"/todo","ip":"::1","level":"info","method":"GET","path_parameters":{"0":"todo"},"query_parameters":{},"timestamp":"2024-04-25T15:32:40.805Z"}
+{"body":{},"endpoint":"/todos","ip":"::1","level":"info","method":"GET","path_parameters":{"0":"todos"},"query_parameters":{},"timestamp":"2024-04-25T15:32:42.851Z"}
+{"body":{},"endpoint":"/todos","ip":"::1","level":"info","method":"GET","path_parameters":{"0":"todos"},"query_parameters":{},"timestamp":"2024-04-25T15:32:44.630Z"}
+{"body":{},"endpoint":"/events","ip":"::1","level":"info","method":"GET","path_parameters":{"0":"events"},"query_parameters":{},"timestamp":"2024-04-25T15:32:51.849Z"}
+{"body":{},"endpoint":"/event","ip":"::1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-04-25T15:32:54.351Z"}
