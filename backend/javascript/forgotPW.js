@@ -64,7 +64,8 @@ var numbers = /[0-9]/g;
         alert("please re-enter password") 
       }
        else if (password1.value === password2.value) {
-        alert("Passwords match")
+        alert("Passwords match") 
+        window.location.href='http://127.0.0.1:5500/cor-web-ft-02-2024/projectTwo/frontend/html/login.html'
      } else if( password1 != password2.value) {
         alert("Passwords do not match")
      }

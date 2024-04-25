@@ -1,3 +1,4 @@
+
 .fgpasswordPage {
     justify-content: center;
     justify-content: space-evenly;
@@ -88,6 +89,7 @@ input {
 
 
 
+
 body {
     /* background-color: #FDFD96; */
     background-image: url(../images/yellowBackground.webp);
@@ -127,5 +129,4 @@ img {
 /* color of the octopus purple #f0bdfc */
 /* color of the outline amaranth or maroon #8f414e */
 /* color of the suction cups and cheeks pink #f797c3 */
-/* complementary color pastel yellow #FDFD96 */
 
