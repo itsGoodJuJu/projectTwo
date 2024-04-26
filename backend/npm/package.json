@@ -7,7 +7,7 @@
     "start": "nodemon server.js && psql postgres://qiykkuwe:YZMdje9GHyZ-slGkXpFUHx_YvcQluy_8@ziggy.db.elephantsql.com/qiykkuwe -a -f ../sql/index.sql",
     "seed": "psql postgres://qiykkuwe:YZMdje9GHyZ-slGkXpFUHx_YvcQluy_8@ziggy.db.elephantsql.com/qiykkuwe -a -f ../sql/index.sql"
   },
-  "author": "Justin Adams",
+  "author": "Justin Adams, Jordan Morgan, David Le",
   "license": "ISC",
   "dependencies": {
     "add-to-calendar-button": "^2.6.13",
