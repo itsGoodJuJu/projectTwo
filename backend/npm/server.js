@@ -5,15 +5,17 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 const path = require('path')
-const { expressCspHeader, INLINE, NONE, SELF } = require('express-csp-header');
+const bodyParser = require("body-parser") // for parsing application/json
 
 
 const app = express()
 app.use('/static', express.static(path.join(__dirname, 'public')))
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); 
 
 
 const db = pgp('postgres://qiykkuwe:YZMdje9GHyZ-slGkXpFUHx_YvcQluy_8@ziggy.db.elephantsql.com/qiykkuwe');
-const bodyParser = require("body-parser") // for parsing application/json
+
 app.use(bodyParser.json())
 let saltRounds = 10;
 
@@ -158,6 +160,7 @@ app.post('/event', async (req, res) => {
 
 
 app.post('/login', async (req, res) => {
+    await db.many('INSERT INTO loginInfo (email, password, firstName, lastName) VALUES ($1, $2, $3, $4) RETURNING *', [req.body.emailInput, req.body.passwordInput, req.body.firstInput, req.body.lastInput]); 
     // let outputPassword = document.querySelector('.form-control'); 
     // let outputFirstName = document.querySelector('.name-control'); 
     // let outputLastName = document.querySelector('.lastName-control'); 
@@ -168,12 +171,10 @@ app.post('/login', async (req, res) => {
     // let firstInput = outputFirstName.value;
     // let lastInput = outputLastName.value;
     // let emailInput = outputEmail.value;
-
-
-    console.log(req.body)
-    let newUser = await db.many('INSERT INTO loginInfo (email, password, firstName, lastName) VALUES ($1, $2, $3, $4) RETURNING *', [req.body.emailInput, req.body.passwordInput, req.body.firstInput, req.body.lastInput]); 
-     }
-)
+    
+    console.log('login endpoint')
+    console.log(req.body);
+})
 
 
 
@@ -254,7 +255,7 @@ app.listen(3000, () => {
 });
 
 
-
+// import 'add-to-calendar-button';
 
 
 // EXAMPLE BCRYPT FUNCTIONS TO USE FOR PASSWORD HASH AND STORAGE
@@ -272,3 +273,66 @@ app.listen(3000, () => {
 // bcrypt.compare(diffPassword, hash, function(err, result) {
 //     // result == false
 // });
+
+
+
+// DAVID---------------------------------------------------------------------------------------
+
+
+// const monthNames = ["January", "February", "March", "April", "May", "June",
+// "July", "August", "September", "October", "November", "December"];
+// let currentMonthIndex = 3; // April
+// let currentYear = 2020;
+
+// function renderCalendar() {
+// const table = document.getElementById("calendarTable");
+// const currentMonthElement = document.getElementById("currentMonth");
+// const currentYearElement = document.getElementById("currentYear");
+
+// // Clear previous calendar
+// table.innerHTML = "<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>";
+
+// // Render new calendar
+// const date = new Date(currentYear, currentMonthIndex, 1);
+// const lastDay = new Date(currentYear, currentMonthIndex + 1, 0).getDate();
+
+// let dayIndex = 0;
+// let row = table.insertRow();
+// for (let i = 0; i < date.getDay(); i++) {
+// row.insertCell();
+// dayIndex++;
+// }
+
+// for (let i = 1; i <= lastDay; i++) {
+// const cell = row.insertCell();
+// cell.textContent = i;
+// dayIndex++;
+// if (dayIndex % 7 === 0) {
+// row = table.insertRow();
+// }
+// }
+
+// currentMonthElement.textContent = monthNames[currentMonthIndex];
+// currentYearElement.textContent = currentYear;
+// }
+
+// function prevMonth() {
+// currentMonthIndex--;
+// if (currentMonthIndex < 0) {
+// currentMonthIndex = 11;
+// currentYear--;
+// }
+// renderCalendar();
+// }
+
+// function nextMonth() {
+// currentMonthIndex++;
+// if (currentMonthIndex > 11) {
+// currentMonthIndex = 0;
+// currentYear++;
+// }
+// renderCalendar();
+// }
+
+// // Initial rendering
+// renderCalendar();

@@ -10,8 +10,10 @@
   "author": "Justin Adams",
   "license": "ISC",
   "dependencies": {
+    "add-to-calendar-button": "^2.6.13",
     "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
     "express": "^4.19.2",
     "express-csp-header": "^5.2.1",
     "nodemon": "^3.1.0",

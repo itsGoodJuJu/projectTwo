@@ -4,17 +4,65 @@
     <meta charset="UTF-8">
     <title>Eventacles</title>
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self';"/>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" href="../images/octoLogo.webp">
+    <link rel="stylesheet" href="../../frontend/css/style.css">
+    <link rel="icon" href="../../frontend/images/octoLogo.webp">
+
+    <!-- david -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script> 
+    <!-- david -->
+
 </head>
 <body>
     <div>
-        <h1><img src="../images/octoLogo.webp" alt=""> EVENTACLES </h1>
+        <h1><img src="../../frontend/images/octoLogo.webp" alt=""> EVENTACLES </h1>
     </div>
-
     <div id="calendarBox"></div>
+
+
+    <!-- david -->
+    <!-- <div class="search-container">
+        <input type="text" id="searchInput" class="searchButton" placeholder="Search your event here">
+        <button id="searchButton" class="search-button">Search</button>
+    </div>
+    <div class="containerEvent">
+        <div class="eventForm">   
+            <div id="calendarBox">
+                <h2>Eventacle</h2>
+                <div class="containerCalendar">
+                    <div id="calendar"></div>
+                </div>
+    
+                <div class="containerSearch">
+                    <form id="eventForm">
+                        <div class="eventForm">
+                            <label for="eventLocation">Event:</label>
+                            <input type="text" id="eventLocation" name="eventLocation" required>
+                        </div>
+                        <div class="eventForm">
+                            <label for="eventDateTime">Date and Time:</label>
+                            <input type="datetime-local" id="eventDateTime" name="eventDateTime" required>
+                        </div>
+                        <div class="eventForm">
+                            <label for="eventDescription">Description:</label>
+                            <textarea id="eventDescription" name="eventDescription" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </form>
+                </div>
     
     
+    <script>
+        $(document).ready(function() {
+       $('#calendar').fullCalendar();
+    });
+    </script> -->
     
+    <!-- david -->
+    
+    <script src="./server.js"></script>
 </body>
 </html>

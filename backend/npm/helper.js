@@ -1,49 +1,48 @@
 
 async function signUp() {
-    let outputPassword = document.querySelector('.form-control'); 
-    let outputFirstName = document.querySelector('.name-control'); 
-    let outputLastName = document.querySelector('.lastName-control'); 
-    let outputEmail = document.querySelector('.email-control'); 
+     
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+    "email": "dre@test.com"
+    });
+
+    var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
+
+    fetch("http://localhost:3000/login", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+
+    // let outputPassword = document.querySelector('.form-control'); 
+    // let outputFirstName = document.querySelector('.name-control'); 
+    // let outputLastName = document.querySelector('.lastName-control'); 
+    // let outputEmail = document.querySelector('.email-control'); 
     // Get the value of the input field 
 
-    let formData = {
-        passwordInput: outputPassword.value,
-        firstInput: outputFirstName.value,
-        lastInput: outputLastName.value,
-        emailInput: outputEmail.value
-    }
-    console.log(formData);
-
-    //e.preventDefault();
-
-    // let newUser = await db.many('INSERT INTO loginInfo (email, password, firstName, lastName) VALUES ($1, $2, $3, $4) RETURNING *', [formData.emailInput, formData.passwordInput, formData.firstInput, formData.lastInput]); 
-    // console.log(newUser);
+    // let formData = {
+    //     passwordInput: outputPassword.value,
+    //     firstInput: outputFirstName.value,
+    //     lastInput: outputLastName.value,
+    //     emailInput: outputEmail.value
+    // }
+    // console.log(formData);
+    // console.log(formData.emailInput);
 
 
 
-    // await fetch('http://localhost:3000/login', {
-    //     Method: 'POST',
-    //     Headers: {
-    //       Accept: 'application.json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //     Body: formData,
-    //     Cache: 'default'
-    //   })
-    //   .then((response) => response.json())
 
-    //   .then((data) => console.log(data));
+//    await fetch("http://localhost:3000/login", requestOptions)
+//     .then(response => response.json())
+//     .then(result => console.log(result))
+//     .catch(error => console.log('error', error));
 
-
-  const requestOptions = {
-    method: "POST",
-    mode: "no-cors",
-    body: JSON.stringify(formData),
-    headers: { "Content-Type": "application/json" },
-} 
-
-    await fetch("http://localhost:3000/login" , requestOptions);
-
-   
+    
     
 }
