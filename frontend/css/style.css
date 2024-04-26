@@ -1,3 +1,84 @@
+
+.fgpasswordPage {
+    justify-content: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    text-align: center;
+    border: solid 2px black;
+    border-radius: 10px;
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-top: 10%;
+    padding-bottom: 10%;
+    background-color: white;
+}
+
+
+
+#newPW {
+    color: rgb(0, 0, 0);
+
+}
+
+#confirm {
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+  }
+  
+  /* Style the submit button */
+  
+  /* Style the container for inputs */
+  .container {
+    background-color: #f1f1f1;
+    padding: 20px;
+  }
+  
+  /* The message box is shown when the user clicks on the password field */
+  #message {
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+  }
+  
+  #message p {
+    padding: 10px 35px;
+    font-size: 18px;
+  }
+  
+  /* Add a green text color and a checkmark when the requirements are right */
+  .valid {
+    color: green;
+  }
+  
+  .valid:before {
+    position: relative;
+    left: -35px;
+  }
+  
+  /* Add a red text color and an "x" icon when the requirements are wrong */
+  .invalid {
+    color: red;
+  }
+  
+  .invalid:before {
+    position: relative;
+    left: -35px;
+  }
+
+
 body {
     /* background-color: #FDFD96; */
     background-image: url(../images/yellowBackground.webp);
@@ -38,3 +119,4 @@ img {
 /* color of the outline amaranth or maroon #8f414e */
 /* color of the suction cups and cheeks pink #f797c3 */
 /* complementary color pastel yellow #FDFD96 */
+
