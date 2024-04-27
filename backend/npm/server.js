@@ -6,15 +6,16 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 const path = require('path')
 const bodyParser = require("body-parser") // for parsing application/json
-
-
 const app = express()
-app.use('/static', express.static(path.join(__dirname, 'public')))
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json()); 
-
-
 const db = pgp('postgres://qiykkuwe:YZMdje9GHyZ-slGkXpFUHx_YvcQluy_8@ziggy.db.elephantsql.com/qiykkuwe');
+const fastify = require('fastify')({
+    logger: true
+  })
+
+app.use('/static', express.static(path.join(__dirname, 'public')))
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json()); 
+fastify.register(require('@fastify/formbody'))
 
 app.use(bodyParser.json())
 let saltRounds = 10;
@@ -67,7 +68,7 @@ app.all('/*', (req, res, next) => {
 
 
 
-
+// GET ENDPOINT ------------------------------------------------------------------------------------------------------
 /*
 Endpoint: 
     GET: returns a list of all event entries; if an id, name, or location is provided, only a events with the corresponding value are returned
@@ -134,6 +135,7 @@ app.get('/event', async (req, res) => {
 })
 
 
+// ----------------------------------------------------- POST ENDPOINT ------------------------------------------------
 /*
 Endpoint: 
     POST: creates an entire event entry to the calendar
@@ -158,8 +160,11 @@ app.post('/event', async (req, res) => {
 })
 
 
-
+// ------------------------------------------- POST ENDPOINT FOR LOGIN INFO ------------------------------------------------------------------------------------------------------
 app.post('/login', async (req, res) => {
+    console.log('login endpoint')
+    console.log(req.body);
+
     await db.many('INSERT INTO loginInfo (email, password, firstName, lastName) VALUES ($1, $2, $3, $4) RETURNING *', [req.body.emailInput, req.body.passwordInput, req.body.firstInput, req.body.lastInput]); 
     // let outputPassword = document.querySelector('.form-control'); 
     // let outputFirstName = document.querySelector('.name-control'); 
@@ -172,12 +177,11 @@ app.post('/login', async (req, res) => {
     // let lastInput = outputLastName.value;
     // let emailInput = outputEmail.value;
     
-    console.log('login endpoint')
-    console.log(req.body);
+    
 })
 
 
-
+// ------------------------------------------------- PUT ENDPOINT ------------------------------------------------------------------------------------------------------
 /*
 Endpoint: 
     PUT: updates an entire event entry; if a name is provided, only entries with that name are updated
@@ -195,14 +199,16 @@ app.put('/event/:name', async (req, res) => {
         res.statusCode = 400
         res.json({error: "Invalid body Parameters"})
     } else {
+        const nameInput = req.params.name;
         console.log(nameInput);
         const {name, location, time, date, description} = req.body
-        let event = await db.oneOrNone(`UPDATE events SET name = $1, location = $2, time = $3, date = $4, description = $5 WHERE name = $6 RETURNING *`, [name, location, time, date, description, nameInput]);
+        let event = await db.any(`UPDATE events SET name = $1, location = $2, time = $3, date = $4, description = $5 WHERE name = $6 RETURNING *`, [name, location, time, date, description, nameInput]);
         res.json(event);
     }
 })
 
 
+// ----------------------------------------------------- PATCH ENDPOINT ------------------------------------------------------------------------------------------------------
 /*
 Endpoint: 
     PATCH: updates a value of an event entry; if a name is provided, only entries with that name are returned
@@ -228,7 +234,7 @@ app.patch('/event/:name', async (req, res) => {
 })
 
 
-
+// ----------------------------------------------------- DELETE ENDPOINT ------------------------------------------------
 /*
 Endpoint: 
     DELETE: deletes an event entry or multiple event entries; if a name is provided, only entries with that name are deleted
@@ -257,7 +263,7 @@ app.listen(3000, () => {
 
 // import 'add-to-calendar-button';
 
-
+// ----------------------------------------------------- BCRYPT EXAMPLES ------------------------------------------------
 // EXAMPLE BCRYPT FUNCTIONS TO USE FOR PASSWORD HASH AND STORAGE
 // let password;
 // let diffPassword;
