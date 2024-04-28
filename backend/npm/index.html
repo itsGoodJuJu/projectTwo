@@ -62,36 +62,38 @@
         <!--------------------------------------------------- Search Bar ------------------------------------------------->
         <div class="search-container">
             <input type="text" id="searchInput" class="searchButton" placeholder="Search for your event by name:">
-            <button id="searchButton" class="search-button">Search</button>
+            <button onclick="testName()" type="search" id="searchButton" class="search-button">Search</button>
         </div>
-        <!--------------------------------------------------- NAVBAR ------------------------------------------------->
+        <!--------------------------------------------------- YOUR EVENTACLE ------------------------------------------------->
         <div class="retrieveEvent">
             <h2 id="yourEventacle">Your <span class="headEventacle">Eventacle</span>(<span class="headEventacle">s</span>):</h2>
             <div id="searchReturn">
                 <div class="eventBox" id="eventBox">
-                    <h4 for="eventName">Event:</h4>
+                    <h4 for="eventName">Event: <span id="returnName"></span></h4>
                 </div>
                 <div class="eventBox" id="eventBox">
-                    <h4 for="eventLocation">Location:</h4>
+                    <h4 for="eventLocation">Location: <span id="returnLoc"></span></h4>
                 </div>
                 <div class="eventBox">
-                    <h4 for="eventDateTime">Date/Time:</h4>
+                    <h4 for="eventDateTime">Date: <span id="returnDate"></span></h4>
                 </div>
                 <div class="eventBox">
-                    <h4 for="eventDescription">Comments:</h4>
+                    <h4 for="eventDateTime">Time: <span id="returnTime"></span></h4>
+                </div>
+                <div class="eventBox">
+                    <h4 for="eventDescription">Comments: <span id="returnCom"></span></h4>
                 </div>
             </div>
         </div>
         
     </div>
 
-    <div id="testBox">
+
+    <!-- TEST DIV -->
+    <!-- <div id="testBox">
         <h3 id="testText">testBox</h3>
-    </div>
+    </div> -->
     
-
-    
-
     <!--------------------------------------------------- CALENDAR CONTAINER ------------------------------------------------->
     
     <div class="containerCalendar">
@@ -109,5 +111,6 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="./server.js"></script>
+    <script src="../javascript/eventFetch.js"></script>
 </body>
 </html>

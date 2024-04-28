@@ -87,7 +87,7 @@ app.get('/event', async (req, res) => {
         });
     } else if((Object.keys(req.query).length != 0) && (Object.keys(req.query)[0] != "id" && Object.keys(req.query)[0] != "name" && Object.keys(req.query)[0] != "location")) {
         clientError(req, "Query parameters do not meet requirements", 400);
-        // checks if parameters other than id, name, types, etc. are passed
+        // checks if parameters other than id, name, etc. are passed
         res.status(400).json({
             error: "Query parameters do not meet requirements"
         });
@@ -148,7 +148,7 @@ Body:
 */
 app.post('/event', async (req, res) => {
     console.log("Event called")
-    if((!req.body|| typeof(req.body) !== 'object') || (!'name' in req.body || typeof(req.body.name) !== 'string') || (!'location' in req.body || typeof(req.body.location) !== 'string') || (!'time' in req.body || (typeof(req.body.time) !== 'string')) || (!'date' in req.body || typeof(req.body.date) !== 'string') || (!'description' in req.body || (typeof(req.body.description) !== 'string' && typeof(req.body.description) !== 'null'))){
+    if((!req.body|| typeof(req.body) !== 'object') || (!'name' in req.body || typeof(req.body.name) !== 'string') || (!'location' in req.body || typeof(req.body.location) !== 'string') || (!'time' in req.body || (typeof(req.body.time) !== 'string')) || (!'date' in req.body || typeof(req.body.date) !== 'string') || (!'description' in req.body && (typeof(req.body.description) !== 'string' && typeof(req.body.description) !== 'null'))){
         res.statusCode = 400
         res.json({error: "Invalid body Parameters"})
     } else {
@@ -261,7 +261,7 @@ app.listen(3000, () => {
 });
 
 
-// import 'add-to-calendar-button';
+
 
 // ----------------------------------------------------- BCRYPT EXAMPLES ------------------------------------------------
 // EXAMPLE BCRYPT FUNCTIONS TO USE FOR PASSWORD HASH AND STORAGE
@@ -280,65 +280,3 @@ app.listen(3000, () => {
 //     // result == false
 // });
 
-
-
-// DAVID---------------------------------------------------------------------------------------
-
-
-// const monthNames = ["January", "February", "March", "April", "May", "June",
-// "July", "August", "September", "October", "November", "December"];
-// let currentMonthIndex = 3; // April
-// let currentYear = 2020;
-
-// function renderCalendar() {
-// const table = document.getElementById("calendarTable");
-// const currentMonthElement = document.getElementById("currentMonth");
-// const currentYearElement = document.getElementById("currentYear");
-
-// // Clear previous calendar
-// table.innerHTML = "<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>";
-
-// // Render new calendar
-// const date = new Date(currentYear, currentMonthIndex, 1);
-// const lastDay = new Date(currentYear, currentMonthIndex + 1, 0).getDate();
-
-// let dayIndex = 0;
-// let row = table.insertRow();
-// for (let i = 0; i < date.getDay(); i++) {
-// row.insertCell();
-// dayIndex++;
-// }
-
-// for (let i = 1; i <= lastDay; i++) {
-// const cell = row.insertCell();
-// cell.textContent = i;
-// dayIndex++;
-// if (dayIndex % 7 === 0) {
-// row = table.insertRow();
-// }
-// }
-
-// currentMonthElement.textContent = monthNames[currentMonthIndex];
-// currentYearElement.textContent = currentYear;
-// }
-
-// function prevMonth() {
-// currentMonthIndex--;
-// if (currentMonthIndex < 0) {
-// currentMonthIndex = 11;
-// currentYear--;
-// }
-// renderCalendar();
-// }
-
-// function nextMonth() {
-// currentMonthIndex++;
-// if (currentMonthIndex > 11) {
-// currentMonthIndex = 0;
-// currentYear++;
-// }
-// renderCalendar();
-// }
-
-// // Initial rendering
-// renderCalendar();
