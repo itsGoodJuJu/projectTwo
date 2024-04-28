@@ -12,28 +12,34 @@
     
     <title>Forgot Password</title>
 </head>
-<body style="background-color: #f0bdfc">
-    <h1>EVENTACLES</h1>
+<body id="forgotPassPage">
+    <h1></h1>
     <div class="fgpasswordPage">
+        <div id="forgotHeader">
+            <img src="../images/octoLogo.webp" height="90%" width="100%">
+            <h3 class="header"> EVENTACLES</h3>
+            <h3>Forgot Your Password?</h3>
+        </div>
 
-    <h1 id="title"><img src="../images/octoLogo.webp" style="height: 80px;"> Forgot Password</h1>
 
-
-    <br><br><br><br>
+    <!-- <br><br><br><br> -->
     <!-- password field, hidden on display and required to have special characters-->
-    <label for="newPW">New password:</label>
-    <input type="password" id="newPW" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+    <label for="newPW"></label>
+    <input type="password" id="newPW" placeholder="New Password" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
     title="Must contain at least one number and one uppercase and lowercase letter, 
     and at least 8 or more characters" required>
-    <br><br><br><br>
+    <!-- <br><br><br><br> -->
 
-    <label for="newPW">Re-enter password:</label>
-    <input type="password" id="newPW2" name="Password2" 
+    <label for="newPW"></label>
+    <input type="password" id="newPW2" placeholder="Re-enter Password" name="Password2" 
     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
     title="Must contain at least one number and one uppercase and lowercase letter, 
     and at least 8 or more characters" required>
     
-    <button type="button" onclick="correctPW()" id="confirm" style="background-color: #da86ab;"> Confirm Password</button>
+    <div>
+        <button id="confirmPass" type="button" onclick="correctPW()" id="confirm" style="background-color: #da86ab;"> Confirm Password</button>
+    </div>
+    
 
     <!--Password Instructions-->
     <div id="message">

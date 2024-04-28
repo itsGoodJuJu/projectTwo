@@ -1,5 +1,6 @@
 
 async function signUp() {
+
     let outputPassword = document.querySelector('.form-control'); 
     let outputFirstName = document.querySelector('.name-control'); 
     let outputLastName = document.querySelector('.lastName-control'); 
@@ -12,38 +13,39 @@ async function signUp() {
         lastInput: outputLastName.value,
         emailInput: outputEmail.value
     }
+    // splitForm= formData.split(":");
+    // console.log(splitForm[0]);
+    // console.log(Object.keys(formData).length)
     console.log(formData);
 
-    //e.preventDefault();
+    // req.body.appendchild(formData);
+     
+    // var myHeaders = new Headers();
+    // myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-    // let newUser = await db.many('INSERT INTO loginInfo (email, password, firstName, lastName) VALUES ($1, $2, $3, $4) RETURNING *', [formData.emailInput, formData.passwordInput, formData.firstInput, formData.lastInput]); 
-    // console.log(newUser);
+    // var raw = JSON.stringify({
+    // "email": "dre@test.com"
+    // });
 
-
-
-    // await fetch('http://localhost:3000/login', {
-    //     Method: 'POST',
-    //     Headers: {
-    //       Accept: 'application.json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //     Body: formData,
-    //     Cache: 'default'
-    //   })
-    //   .then((response) => response.json())
-
-    //   .then((data) => console.log(data));
-
-
-  const requestOptions = {
-    method: "POST",
-    mode: "no-cors",
+    var requestOptions = {
+    method: 'POST',
+    // mode: "no-cors",
+    headers: {"Content-Type": "application/x-www-form-urlencoded"},
     body: JSON.stringify(formData),
-    headers: { "Content-Type": "application/json" },
-} 
+    // redirect: 'follow'
+    };
 
-    await fetch("http://localhost:3000/login" , requestOptions);
+    fetch("http://localhost:3000/login", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    // .catch(error => console.log('error', error));
 
-   
     
+    // console.log(formData.emailInput);
+
+//    await fetch("http://localhost:3000/login", requestOptions)
+//     .then(response => response.json())
+//     .then(result => console.log(result))
+//     .catch(error => console.log('error', error));
+
 }
