@@ -31,8 +31,10 @@
       <span></span>
       <form>
     <div id="ButtonBox">
-     <input type="text" placeholder="Email here">
-      <input type="text" placeholder="password here">
+     <input type="email" placeholder="Email here">
+     <input type="password" id="newPW" placeholder="New Password" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+     title="Must contain at least one number and one uppercase and lowercase letter, 
+     and at least 8 or more characters" required>
       </div>
 
       <button id>Login</button>

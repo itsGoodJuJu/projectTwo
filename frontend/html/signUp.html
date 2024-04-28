@@ -25,7 +25,9 @@
                 <input type="text" placeholder="First Name" class="name-control">
                 <input type="text" placeholder="Last Name" class="lastName-control">
                 <input type="email" placeholder="Email here" class="email-control">
-                <input type="password" placeholder="Password here" class="form-control" id="password">        
+                <input type="password" id="newPW" placeholder="New Password" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                title="Must contain at least one number and one uppercase and lowercase letter, 
+                and at least 8 or more characters" required>      
                 <button type="submit">Sign Up</button>
             </div>
         </form>
