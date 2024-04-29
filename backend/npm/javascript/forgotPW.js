@@ -1,4 +1,24 @@
 
+const forgotPasswordForm = document.querySelector('#forgotPasswordForm');
+
+    forgotPasswordForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(signUpForm);
+
+        const urlEncoded = new URLSearchParams(formData).toString();
+
+        fetch("http://localhost:3000/signup", {
+            method: "POST",
+            body: urlEncoded,
+            headers: {
+                'Content-type': 'application/x-www-form-urlencoded',
+            }
+        })
+
+        window.location.href = 'http://127.0.0.1:5501/projectTwo/frontend/html/login.html';
+    });
+
+
 function correctPW() {
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");

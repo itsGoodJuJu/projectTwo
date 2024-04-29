@@ -15,10 +15,10 @@ RETURNING *;
 
 CREATE TABLE logininfo (
     id SERIAL NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    password VARCHAR(100) NOT NULL,
-    firstName VARCHAR(50) NOT NULL,
-    lastName VARCHAR(50) NOT NULL,
+    email VARCHAR(50),
+    password VARCHAR(100),
+    firstName VARCHAR(50),
+    lastName VARCHAR(50),
     CONSTRAINT pk_login PRIMARY KEY (id,email)
 );
 

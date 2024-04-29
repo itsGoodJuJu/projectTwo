@@ -194,6 +194,22 @@ app.post('/create', async (req, res) => {
 })
 
 
+// ------------------------------------------- POST: COLLECT NEW PASSWORD ------------------------------------------------------------------------------------------------------
+app.post('/forgotPassword', async (req, res) => {
+    console.log('login endpoint')
+
+    let password = req.body.password;
+    let hash;
+    bcrypt.hash(password, saltRounds)
+    .then(hash => {
+      console.log(`Hash: ${hash}`);
+      // Store hash in your password DB.
+        db.many('UPDATE logininfo SET password= $1 WHERE email = $2 RETURNING *', [hash, req.body.email]);
+    })
+    .catch(err => console.error(err.message));
+
+})
+
 
 // ------------------------------------------- POST: COLLECT SIGNUP INFO ------------------------------------------------------------------------------------------------------
 app.post('/signup', async (req, res) => {
