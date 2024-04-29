@@ -1,5 +1,6 @@
 
 function correctPW() {
+  
 var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
 var number = document.getElementById("number");
@@ -50,6 +51,7 @@ var numbers = /[0-9]/g;
           length.classList.add("invalid");
         }
       }
+     
       if(password1.value.match(lowerCaseLetters) === false) {
         alert(" at least 1 lowercase letter required ")
       } else if(password1.value.match(upperCaseLetters) === false) {
@@ -62,8 +64,7 @@ var numbers = /[0-9]/g;
         alert("password must have 8 characters")
       } else if (password2.value === "") {
         alert("please re-enter password") 
-      }
-       else if (password1.value === password2.value) {
+      } else if (password1.value === password2.value) {
         alert("Passwords match");
         window.location.href='/Users/corcoding/digitalcrafts/projectTwo/frontend/html/login.html'
      } else if( password1 != password2.value) {
