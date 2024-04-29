@@ -1,3 +1,0 @@
-{"body":{},"endpoint":"/event","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-04-29T13:47:43.432Z"}
-{"body":{"date":"2024-04-30","description":"wear sunscreen","location":"Garden Hills","name":"Volleyball Match","time":"19:00:00"},"endpoint":"/create","ip":"::ffff:127.0.0.1","level":"info","method":"POST","path_parameters":{"0":"create"},"query_parameters":{},"timestamp":"2024-04-29T13:48:21.154Z"}
-{"body":{},"endpoint":"/event","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-04-29T13:48:29.538Z"}
