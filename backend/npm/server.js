@@ -171,9 +171,17 @@ app.post('/create', async (req, res) => {
 // ------------------------------------------- POST: COLLECT SIGNUP INFO ------------------------------------------------------------------------------------------------------
 app.post('/signup', async (req, res) => {
     console.log('login endpoint')
-    console.log(req.body);
 
-    await db.many('INSERT INTO logininfo (email, password, firstName, lastName) VALUES ($1, $2, $3, $4) RETURNING *', [req.body.email, req.body.password, req.body.firstName, req.body.lastName]);     
+    let password = req.body.password;
+    let hash;
+    bcrypt.hash(password, saltRounds)
+    .then(hash => {
+      console.log(`Hash: ${hash}`);
+      // Store hash in your password DB.
+        db.many('INSERT INTO logininfo (email, password, firstName, lastName) VALUES ($1, $2, $3, $4) RETURNING *', [req.body.email, hash, req.body.firstName, req.body.lastName]);
+    })
+    .catch(err => console.error(err.message));
+
 })
 
 
