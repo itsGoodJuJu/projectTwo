@@ -4,20 +4,24 @@ const winston = require('winston');
 const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
-const path = require('path')
-const bodyParser = require("body-parser") // for parsing application/json
-const app = express()
+const swaggerUI = require('swagger-ui-express');
+const YAML = require('yamljs');
+const swaggerJsDocs = YAML.load('./api.yaml');
+const path = require('path');
+const bodyParser = require("body-parser"); // for parsing application/json
+const app = express();
 const db = pgp('postgres://qiykkuwe:YZMdje9GHyZ-slGkXpFUHx_YvcQluy_8@ziggy.db.elephantsql.com/qiykkuwe');
 const fastify = require('fastify')({
     logger: true
-  })
+  });
 
-app.use('/static', express.static(path.join(__dirname, 'public')))
+app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); 
-fastify.register(require('@fastify/formbody'))
+fastify.register(require('@fastify/formbody'));
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use("/api-docs", swaggerUI.serve,swaggerUI.setup(swaggerJsDocs));
 let saltRounds = 10;
 
 

@@ -1,0 +1,110 @@
+swagger: "2.0"
+info:
+  title: This is our Event API 
+  description: This is a Event list documentation
+  version: "1.0.0"
+  contact:
+    email: davidle241872@yahoo.com
+servers:
+  - url: "http://localhost:3000/api-docs/"
+    description: This is my local server
+schemes: [http, https]
+
+paths:
+  /event  :
+    post:
+      summary: Adds an event to the list
+      description: Adds an event to the list. If a list parameter is provided it add multiple event in one call.
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Object containing the list of events
+          required: true
+          schema:
+            type: object
+            properties:
+              list:
+                type: array
+                items:
+                  $ref: '#/definitions/event'
+      responses: 
+        200:
+          description: event list posted
+        400:
+          description: Bad Request
+    get:
+      summary: Returns an event list
+      description: Returns a list of all events; if a name is provided, only a single event is returned
+      parameters:
+        - name: name
+          in: query
+          description: Name of the event
+          required: false 
+          type: string
+      responses:
+        200:
+          description: Event list retrieved
+        400: 
+          description: Bad request
+
+  /event/{name}:
+    delete:
+      summary: deletes an event
+      description: Deletes an event from the list
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: The name of the event to delete
+          type: string
+      responses:
+        200:
+          description: event deleted
+    put:
+      summary: Updates an existing event and modifies its data
+      description: the name of task to be updated in the eventlist
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: the name of the task to be updated
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              event:
+                type: string
+              completed:
+                type: boolean
+      responses:
+        200:
+          description: event updated
+        400:
+          description: Bad request
+
+definitions:
+  event:
+    type: object
+    properties:
+      name:
+        type: integer
+      event:
+        type: string
+      completed:
+        type: boolean
+
+
+
+
+
