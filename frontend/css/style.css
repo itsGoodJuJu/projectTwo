@@ -250,15 +250,12 @@ body {
 #eventDateTime {
     margin-top: 4%;
     color: #8f414e9b;
+    width: 98%;
 }
 
 #eventDescription{
     height: 20%;
     margin-top: 4%;
-    color: #8f414e;
-}
-
-#searchInput {
     color: #8f414e;
 }
 
@@ -271,7 +268,7 @@ body {
 #searchInput {
     box-shadow: 0 0 5px #8f414e;
     font-family: arial;
-    color:#8f414e
+    color:#8f414e98
 }
 
 #submitEvent {

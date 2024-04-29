@@ -36,27 +36,32 @@
     
     <!--------------------------------------------------- CREATE NEW EVENT CONT. ------------------------------------------------->
     <div class="containNewEvent">
-        <form id="eventForm">
+        <form id="eventForm" action="http://localhost:3000/create">
             <h2 id="createEvent" >Create an <span class="headEventacle">Eventacle</span>:</h2>
             <div class="eventBox" id="eventBox">
                 <label for="eventLocation"></label>
-                <input placeholder="event name:" id="eventName" name="eventName" required>
+                <input placeholder="event name:" id="eventName" name="name" required>
             </div>
             <div class="eventBox" id="eventBox">
                 <label for="eventLocation"></label>
-                <input placeholder="location:" id="eventLocation" name="eventLocation" required>
+                <input placeholder="location:" id="eventLocation" name="location" required>
             </div>
             <div class="eventBox">
                 <label for="eventDateTime"></label>
-                <input type="datetime-local" id="eventDateTime" name="eventDateTime" required>
+                <input type="date" id="eventDateTime" name="date" class="eventDate" required>
+            </div>
+            <div class="eventBox">
+                <label for="eventTime"></label>
+                <input type="time" id="eventDateTime" name="time" class="eventTime" value="00:00:00" required>
             </div>
             <div class="eventBox">
                 <label for="eventDescription"></label>
-                <textarea placeholder="enter your comments here:" id="eventDescription" name="eventDescription" required></textarea>
+                <textarea placeholder="enter your comments here:" id="eventDescription" name="description" required></textarea>
             </div>
             <button id="submitEvent" type="submit" class="submit-btn">Submit</button>
         </form>
     </div>
+
 
     <div id="yourEventCont">
         <!--------------------------------------------------- Search Bar ------------------------------------------------->
@@ -108,9 +113,11 @@
         $('#calendar').fullCalendar();
     });
     </script>
+
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="./server.js"></script>
     <script src="../javascript/eventFetch.js"></script>
+    <script src="./helper.js"></script>
 </body>
 </html>

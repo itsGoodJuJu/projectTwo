@@ -159,6 +159,34 @@ app.post('/event', async (req, res) => {
     }
 })
 
+// ------------------------------------------- POST CREATE NEW EVENTACLE ------------------------------------------------------------------------------------------------------
+
+
+// async function createEventacle() {
+//     let nameInput = document.querySelector('#eventName'); 
+//     let locInput = document.querySelector('#eventLocation');
+//     let dateInput = document.querySelector('.eventDate');
+//     let timeInput = document.querySelector('.eventTime');
+//     let comInput = document.querySelector('#eventDescription');
+
+//     let newName = nameInput.value;
+//     let newLoc = locInput.value;
+//     let newDate = dateInput.value;
+//     let newTime = timeInput.value;
+//     let newCom = comInput.value;
+
+//     app.post('/battlePlayer', async function(req, res) {
+//         let newEvent = await db.query('INSERT INTO events(name, location, time, date, description) VALUES($1, $2, $3, $4, $5) RETURNING *', [newName, newLoc, newDate, newTime, newCom]);
+//     })
+// }
+
+
+app.post('/create', async (req, res) => {
+    console.log(req.body);
+    await db.query('INSERT INTO events(name, location, time, date, description) VALUES($1, $2, $3, $4, $5) RETURNING *', [req.body.name, req.body.location, req.body.time, req.body.date, req.body.description]);
+})
+
+
 
 // ------------------------------------------- POST ENDPOINT FOR LOGIN INFO ------------------------------------------------------------------------------------------------------
 app.post('/login', async (req, res) => {
