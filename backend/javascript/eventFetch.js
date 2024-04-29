@@ -1,5 +1,5 @@
 
-async function testName() {
+async function returnEvent() {
      
     await fetch("http://localhost:3000/event")
     .then(res => res.json())
@@ -7,7 +7,6 @@ async function testName() {
         let outputName = document.querySelector('#searchInput'); 
         // Get the value of the input field 
         let userInput = outputName.value;
-        console.log(data[0].name);
         for(i = 0; i < data.length; i++) {
             if(userInput == data[i].name) {
                 document.querySelector('#returnName').innerText = data[i].name;
@@ -19,8 +18,9 @@ async function testName() {
                 document.querySelector('#returnCom').innerText = data[i].description;
                 if(data[i].description == null) {
                     document.querySelector('#returnCom').innerText = "(no comments added)";
-                }
-            } if(userInput != data[i].name) {
+                };
+                return;
+            } else {
                 document.querySelector('#returnName').innerText = "* EVENTACLE DOES NOT EXIST. CREATE EVENTACLE ABOVE. ^ *";
             }
         }

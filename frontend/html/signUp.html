@@ -20,20 +20,20 @@
                 <h3>Create a New Account</h3>
         </div>
         <!--use span to add a line between "or" to separate -->
-        <form onsubmit="signUp()">
+        <form id="signUpForm" action="http://localhost:3000/signup">
             <div id="inputChange">
-                <input type="text" placeholder="First Name" class="name-control">
-                <input type="text" placeholder="Last Name" class="lastName-control">
-                <input type="email" placeholder="Email here" class="email-control">
-                <input type="password" placeholder="Password here" class="form-control" id="password">        
-                <button type="submit">Sign Up</button>
+                <input type="text" placeholder="First Name" class="name-control" name="firstName" required>
+                <input type="text" placeholder="Last Name" class="lastName-control" name="lastName" required>
+                <input type="email" placeholder="Email here" class="email-control" name="email" required>
+                <input type="password" placeholder="Password here" class="form-control" id="password" name="password" required>        
+                <button onclick="window.location.href = 'http://127.0.0.1:5501/projectTwo/frontend/html/login.html';" type="submit">Sign Up</button>
             </div>
         </form>
         <!-- Always add <a href= add a link here" > "add text that goes into the link"-->
         <p>Already have an account? <a href="./login.html">Sign in now</a></p>
     </div>
 
-    <script src="../../backend/javascript/helper.js"></script>
+    <script src="../../backend/npm/signUpHelper.js"></script>
     <!-- <script src="../../backend/javascript/login.js"></script> -->
 </body>
 </html>

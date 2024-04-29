@@ -159,27 +159,7 @@ app.post('/event', async (req, res) => {
     }
 })
 
-// ------------------------------------------- POST CREATE NEW EVENTACLE ------------------------------------------------------------------------------------------------------
-
-
-// async function createEventacle() {
-//     let nameInput = document.querySelector('#eventName'); 
-//     let locInput = document.querySelector('#eventLocation');
-//     let dateInput = document.querySelector('.eventDate');
-//     let timeInput = document.querySelector('.eventTime');
-//     let comInput = document.querySelector('#eventDescription');
-
-//     let newName = nameInput.value;
-//     let newLoc = locInput.value;
-//     let newDate = dateInput.value;
-//     let newTime = timeInput.value;
-//     let newCom = comInput.value;
-
-//     app.post('/battlePlayer', async function(req, res) {
-//         let newEvent = await db.query('INSERT INTO events(name, location, time, date, description) VALUES($1, $2, $3, $4, $5) RETURNING *', [newName, newLoc, newDate, newTime, newCom]);
-//     })
-// }
-
+// ------------------------------------------- POST: CREATE NEW EVENTACLE ------------------------------------------------------------------------------------------------------
 
 app.post('/create', async (req, res) => {
     console.log(req.body);
@@ -188,24 +168,12 @@ app.post('/create', async (req, res) => {
 
 
 
-// ------------------------------------------- POST ENDPOINT FOR LOGIN INFO ------------------------------------------------------------------------------------------------------
-app.post('/login', async (req, res) => {
+// ------------------------------------------- POST: COLLECT SIGNUP INFO ------------------------------------------------------------------------------------------------------
+app.post('/signup', async (req, res) => {
     console.log('login endpoint')
     console.log(req.body);
 
-    await db.many('INSERT INTO loginInfo (email, password, firstName, lastName) VALUES ($1, $2, $3, $4) RETURNING *', [req.body.emailInput, req.body.passwordInput, req.body.firstInput, req.body.lastInput]); 
-    // let outputPassword = document.querySelector('.form-control'); 
-    // let outputFirstName = document.querySelector('.name-control'); 
-    // let outputLastName = document.querySelector('.lastName-control'); 
-    // let outputEmail = document.querySelector('.email-control'); 
-    // // Get the value of the input field 
-    // let passwordInput = outputPassword.value; 
-    // console.log(passwordInput);
-    // let firstInput = outputFirstName.value;
-    // let lastInput = outputLastName.value;
-    // let emailInput = outputEmail.value;
-    
-    
+    await db.many('INSERT INTO logininfo (email, password, firstName, lastName) VALUES ($1, $2, $3, $4) RETURNING *', [req.body.email, req.body.password, req.body.firstName, req.body.lastName]);     
 })
 
 
