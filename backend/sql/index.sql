@@ -24,8 +24,8 @@ CREATE TABLE logininfo (
 
 
 INSERT INTO logininfo (email, password, firstName, lastName)
-VALUES ('justinladams88@gmail.com', 'password1234', 'Justin', 'Adams'),
-('jordandmorgan24@gmail.com', 'lakersIn6', 'Jordan', 'Morgan')
+VALUES ('justinladams88@gmail.com', 'Password123!', 'Justin', 'Adams'),
+('jordandmorgan24@gmail.com', 'lakersIn6!', 'Jordan', 'Morgan')
 RETURNING *;
 
 

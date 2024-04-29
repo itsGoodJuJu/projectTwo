@@ -135,6 +135,28 @@ app.get('/event', async (req, res) => {
 })
 
 
+
+// ------------------------------------------- GET: login information ------------------------------------------------------------------------------------------------------
+app.get('/login', async (req, res) => {
+    console.log('login endpoint')
+    console.log("Test", loginEmail.value);
+    console.log()
+    await db.any('SELECT email, password FROM logininfo WHERE email = $1', )
+
+
+    let password = req.body.password;
+    let hash;
+    // bcrypt.hash(password, saltRounds)
+    // .then(hash => {
+    //   console.log(`Hash: ${hash}`);
+    //   // Store hash in your password DB.
+    //     db.many('INSERT INTO logininfo (email, password, firstName, lastName) VALUES ($1, $2, $3, $4) RETURNING *', [req.body.email, hash, req.body.firstName, req.body.lastName]);
+    // })
+    // .catch(err => console.error(err.message));
+
+})
+
+
 // ----------------------------------------------------- POST ENDPOINT ------------------------------------------------
 /*
 Endpoint: 
