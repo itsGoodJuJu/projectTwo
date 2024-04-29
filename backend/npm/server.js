@@ -183,6 +183,7 @@ app.post('/event', async (req, res) => {
 
 // ------------------------------------------- POST: CREATE NEW EVENTACLE ------------------------------------------------------------------------------------------------------
 
+
 app.post('/create', async (req, res) => {
     console.log(req.body);
     await db.query('INSERT INTO events(name, location, time, date, description) VALUES($1, $2, $3, $4, $5) RETURNING *', [req.body.name, req.body.location, req.body.time, req.body.date, req.body.description]);
