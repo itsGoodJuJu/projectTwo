@@ -52,7 +52,11 @@
 
 
 
+
+
+
 const form = document.querySelector('#eventForm');
+// COLLECTS DATA TO CREATE NEW EVENTACLE
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -67,4 +71,5 @@ const form = document.querySelector('#eventForm');
                 'Content-type': 'application/x-www-form-urlencoded',
             }
         })
-    })
+    });
+
