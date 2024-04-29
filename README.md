@@ -1,10 +1,17 @@
 # projectTwo
-This is a full-stack project and will be our 2nd graded project.
+
+This website is called Eventacles!
+
+When you login to Eventacles, you can access your own personal event planner. Here you can view your calendar and add new events which we call Eventacles. You are able to search for your events by name and delete events by name.
 
 
-This app is called an Event Calendar!
+<img src="./frontend/images/mainPage.jpeg">
 
-It is a front end application designed to help you organize your events and also keep track of anything going on. It features an updated calendar along with a feature catered torwards a quick and simple event organization system. The calendar is a base template that can be customized for any event specific qualities and allows room to have features added onto with it's sleek and simple design.
+<img src="./frontend/images/createAccount.jpeg">
+
+<img src="./frontend/images/login.jpeg">
+
+<img src="./frontend/images/forgotPW.jpeg">
 
 
 List of team members:
@@ -12,10 +19,4 @@ List of team members:
 
 <p><img src="./frontend/images/davidPic.png" height="150" width="150">David Le<img src="./frontend/images/justinPic.png" height="150" width="150">Justin Adams<img src="./frontend/images/jordanPic.png" height="150" width="150">Jordan Morgan</p>
 
-<style>
-    img {
-        border-radius: 50%;
-    }
-
-</style>
 
