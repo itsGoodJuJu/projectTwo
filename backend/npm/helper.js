@@ -71,5 +71,6 @@ const form = document.querySelector('#eventForm');
                 'Content-type': 'application/x-www-form-urlencoded',
             }
         })
+
     });
 
