@@ -191,7 +191,7 @@ body {
     margin-left: 40%;
     margin-right: 5%;
     float: right;
-    margin-top: -44.3%;
+    margin-top: -61.5%;
     margin-bottom: 5%;
     background-color: #f0bdfc;
     text-align: center;
@@ -266,6 +266,12 @@ body {
 }
 
 #searchInput {
+    box-shadow: 0 0 5px #8f414e;
+    font-family: arial;
+    color:#8f414e98
+}
+
+#deleteInput {
     box-shadow: 0 0 5px #8f414e;
     font-family: arial;
     color:#8f414e98
