@@ -212,6 +212,7 @@ app.post('/forgotPassword', async (req, res) => {
 
 
 // ------------------------------------------- POST: COLLECT SIGNUP INFO ------------------------------------------------------------------------------------------------------
+// works in google chrome
 app.post('/signup', async (req, res) => {
     console.log('login endpoint')
 

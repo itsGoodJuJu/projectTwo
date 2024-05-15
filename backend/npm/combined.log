@@ -1,0 +1,23 @@
+{"body":{"date":"2024-04-30","description":"wear sunscreen","location":"Garden Hills","name":"Volleyball Match","time":"19:00:00"},"endpoint":"/create","ip":"::ffff:127.0.0.1","level":"info","method":"POST","path_parameters":{"0":"create"},"query_parameters":{},"timestamp":"2024-04-29T15:21:34.168Z"}
+{"body":{},"endpoint":"/event","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-04-29T15:21:40.852Z"}
+{"body":{},"endpoint":"/event","ip":"::1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-04-29T15:22:28.435Z"}
+{"body":{},"endpoint":"/event","ip":"::1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{"name":"Mother's Day"},"timestamp":"2024-04-29T15:22:53.429Z"}
+{"body":{"date":"2024-05-17","description":null,"location":"EM BOP","name":"Liam's Birthday","time":"19:30:00"},"endpoint":"/event","ip":"::1","level":"info","method":"POST","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-04-29T15:23:30.946Z"}
+{"body":{},"endpoint":"/event","ip":"::1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-04-29T15:24:23.767Z"}
+{"body":{"date":"2024-05-21","description":"stretch before going","location":"GSU Omnigym","name":"Volleyball Tournament","time":"18:00:00"},"endpoint":"/event/Liam's%20Birthday","ip":"::1","level":"info","method":"PUT","path_parameters":{"0":"event/Liam's Birthday"},"query_parameters":{},"timestamp":"2024-04-29T15:24:34.022Z"}
+{"body":{},"endpoint":"/event","ip":"::1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-04-29T15:24:58.580Z"}
+{"body":{},"endpoint":"/event/Volleyball%20Tournament","ip":"::1","level":"info","method":"DELETE","path_parameters":{"0":"event/Volleyball Tournament"},"query_parameters":{},"timestamp":"2024-04-29T15:25:14.547Z"}
+{"body":{"email":"ghg@fdgfg.com","firstName":"hmg","lastName":"fgh","password":"ghvyEFf234"},"endpoint":"/signup","ip":"::1","level":"info","method":"POST","path_parameters":{"0":"signup"},"query_parameters":{},"timestamp":"2024-04-29T15:43:47.993Z"}
+{"body":{},"endpoint":"/event","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-05-15T15:03:59.127Z"}
+{"body":{},"endpoint":"/event","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-05-15T15:04:03.542Z"}
+{"body":{},"endpoint":"/event","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-05-15T15:04:04.519Z"}
+{"body":{},"endpoint":"/event","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-05-15T15:04:06.068Z"}
+{"body":{},"endpoint":"/event","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-05-15T15:04:06.535Z"}
+{"body":{},"endpoint":"/event","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-05-15T15:04:06.718Z"}
+{"body":{},"endpoint":"/event","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-05-15T15:04:06.886Z"}
+{"body":{},"endpoint":"/event","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-05-15T15:04:07.067Z"}
+{"body":{},"endpoint":"/event","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-05-15T15:04:07.268Z"}
+{"body":{},"endpoint":"/event","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-05-15T15:04:07.837Z"}
+{"body":{},"endpoint":"/event","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"event"},"query_parameters":{},"timestamp":"2024-05-15T15:04:08.420Z"}
+{"body":{},"endpoint":"/login","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"login"},"query_parameters":{},"timestamp":"2024-05-15T15:04:41.739Z"}
+{"body":{},"endpoint":"/login","ip":"::ffff:127.0.0.1","level":"info","method":"GET","path_parameters":{"0":"login"},"query_parameters":{},"timestamp":"2024-05-15T15:05:40.241Z"}
