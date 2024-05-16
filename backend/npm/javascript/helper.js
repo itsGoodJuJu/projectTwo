@@ -10,7 +10,7 @@ const form = document.querySelector('#eventForm');
 
         const urlEncoded = new URLSearchParams(formData).toString();
 
-        alert("Evetnacle Created");
+        alert("Eventacle Created");
 
         fetch("http://localhost:3000/create", {
             method: "POST",
