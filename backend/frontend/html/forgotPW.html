@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="icon" href="../images/octoLogo.webp">
+
+    <link rel="icon" href="../images/octoLogo.webp">
+    
+    <title>Forgot Password</title>
+</head>
+<body id="forgotPassPage">
+    <h1></h1>
+    <div class="fgpasswordPage">
+        <div id="forgotHeader">
+            <img src="../images/octoLogo.webp" height="50%" width="50%">
+            <h3 class="header"> EVENTACLES</h3>
+            <h3>Forgot Your Password?</h3>
+        </div>
+
+
+    <!-- <br><br><br><br> -->
+    <!-- password field, hidden on display and required to have special characters-->
+    <form id="forgotPasswordForm" action="http://localhost:3000/forgotPassword">
+        <input type="email" placeholder="Email" class="email-control" name="email" required>
+        <label for="newPW"></label>
+        <input type="password" id="newPW" placeholder="New Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+        title="Must contain at least one number and one uppercase and lowercase letter, 
+        and at least 8 or more characters" required>
+        <!-- <br><br><br><br> -->
+
+        <label for="newPW"></label>
+        <input type="password" id="newPW2" placeholder="Re-enter Password" name="password2" 
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+        title="Must contain at least one number and one uppercase and lowercase letter, 
+        and at least 8 or more characters" required>
+        
+        <div>
+            <button id="confirmPass" type="submit" onclick="correctPW()" id="confirm" style="background-color: #da86ab;"> Confirm Password</button>
+        </div>
+    </form>
+
+    <!--Password Instructions-->
+    <div id="message">
+        <h3>Password must contain the following:</h3>
+        <p id="letter" class="invalid">A lowercase letter</p>
+        <p id="capital" class="invalid">A capital letter</p>
+        <p id="number" class="invalid">A number</p>
+        <p id="length" class="invalid">Minimum 8 characters</p>
+      </div>
+    </div>
+
+
+    <script src="../../backend/npm/javascript/forgotPW.js"></script>
+</body>
+</html>

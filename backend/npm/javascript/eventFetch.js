@@ -36,10 +36,13 @@ async function deleteEvent() {
         let userInput = outputName.value;
         for(i = 0; i < data.length; i++) {
             if(userInput == data[i].name) {
+                // document.querySelector('#eventAvailability').innerText = "* EVENTACLE DELETED *";
+                alert("* EVENTACLE DELETED *");
                 
                 return;
             } else {
-                document.querySelector('#returnName').innerText = "* EVENTACLE DOES NOT EXIST. CREATE EVENTACLE ABOVE. ^ *";
+                // document.querySelector('#eventAvailability').innerText = "* EVENTACLE DOES NOT EXIST *";
+                // alert("* EVENTACLE DOES NOT EXIST *")
             }
         }
     })

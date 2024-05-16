@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+ }
+  
+ body{
+    /* background:#2c3642 */
+   background-image: url(../images/mauveBackground.avif);
+   background-repeat: no-repeat;
+   background-size: cover;
+   }
+ 
+ .login-box{
+ 
+    /* the back ground is white due to #fff and black is #000000( six_0's)for the second container */
+ 
+ 
+ /* black = 000000  / white is #fff */
+ /* padding - changing within the second container */
+    background: #fff;
+    padding: 5px 150px;
+    width: 585px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-40%);
+    /* this would center or move the container to the middle of the website (position->transform) + use text-align afterwards */
+    text-align: center;
+    border-radius: 20px;
+ }
+ .logo{
+    width: 50px;
+    margin-bottom: 20px;
+ 
+ }
+ /* .login-box h2{
+    margin-bottom: 10px;
+ } */
+ /* .login-box button img{
+    width: 18px;
+    margin-right: 10px;
+ } */
+ .login-box button{
+ width: 100%;
+ /* paddid will add sauce between the boxes */
+ padding: 8px 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ /*margin add space outside of the button */
+ margin: 25px 0;
+ border-radius: 30px;
+ background: transparent;
+ border: 1px solid #999;
+ font-weight: 500;
+ cursor: pointer;
+ }
+ .login-box hr{
+    border: 0;
+    height: 1px;
+    background: #c2c2c2;
+    margin: 5px;
+ }
+ /* this will add the line between the apple and next button ( adding or between it) */
+ .login-box span{
+    display: block;
+    width: 40px;
+    margin: auto;
+    background: #fff;
+    font-size: 14px;
+    margin-top: -16px;
+ }
+ /* this edits the container for the email and password */
+ .login-box input{
+ width: 98%;
+ background: transparent;
+ padding:8px 6px;
+ border-radius: 3px;
+ margin: 14px 5px;
+ }
+ /* change within the >font< of next */
+ ::placeholder{
+ font-weight: 500;
+ color:#000;
+ }
+ /* this is for the "next button" */
+ .login-box #inputChange button{
+ background: #f797c3;
+ color: #fff;
+ border: 0;
+ margin-bottom: 1;
+ }
+ .login-box p{
+    text-align: left;
+    font-size: 14px;
+    color: #000;
+    margin: 40 px 0 50px;
+ }
+ .login-box p a{
+    text-decoration: none;
+    color: #359cf0;
+ }
+ 
+ .loginHeader {
+   padding: 10%;
+ }
+ 
+ #header {
+   padding: 5%;
+   color: rgb(224, 81, 105);
+   
+ }
+
+ #inputChange {
+    padding: 1em;
+
+}
+ 
+ 
+ /* color of the octopus #f0bdfc */
+ /* color of the outline #8f414e */
+ /* color of the suction cups and cheeks #f797c3 */
+ /* complementary color pastel yellow #FDFD96 */

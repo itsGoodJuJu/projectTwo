@@ -24,5 +24,5 @@ const loginForm = document.querySelector('#loginForm');
         })
 
         
-        window.location.href = 'file:///Users/corcoding/digitalcrafts/projectTwo/backend/npm/index.html?eventName=g&eventLocation=g&eventDateTime=4232-02-05&eventDateTime=00%3A00%3A00&eventDescription=fess#';
+        window.location.href = 'file:///Users/corcoding/digitalcrafts/projectTwo/backend/npm/index.html';
     });
