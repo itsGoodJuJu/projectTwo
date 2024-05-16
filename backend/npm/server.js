@@ -143,9 +143,9 @@ app.get('/event', async (req, res) => {
 // ------------------------------------------- GET: login information ------------------------------------------------------------------------------------------------------
 app.get('/login', async (req, res) => {
     console.log('login endpoint')
-    console.log("Test", loginEmail.value);
+    // console.log("Test", loginEmail.value);
     console.log()
-    await db.any('SELECT email, password FROM logininfo WHERE email = $1', )
+    // await db.any('SELECT email, password FROM logininfo WHERE email = $1', loginEmail.value)
 
 
     let password = req.body.password;
@@ -190,6 +190,7 @@ app.post('/event', async (req, res) => {
 
 app.post('/create', async (req, res) => {
     console.log(req.body);
+    // alert("New Eventacle Created");
     await db.query('INSERT INTO events(name, location, time, date, description) VALUES($1, $2, $3, $4, $5) RETURNING *', [req.body.name, req.body.location, req.body.time, req.body.date, req.body.description]);
 })
 
