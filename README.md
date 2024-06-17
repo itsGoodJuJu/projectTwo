@@ -2,7 +2,7 @@
 
 This website is called Eventacles!
 
-When you login to Eventacles, you can access your own personal event planner. Here you can view your calendar and add new events which we call Eventacles. You are able to search for your events by name and delete events by name.
+When you log in to Eventacles, you can access your own personal event planner. Here you can view your calendar and add new events which we call Eventacles. You are able to search for your events by name and delete events by name.
 
 
 <img src="./frontend/images/mainPage.jpeg">
