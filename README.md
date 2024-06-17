@@ -1,4 +1,4 @@
-# projectTwo
+# EVENTACLES
 
 This website is called Eventacles!
 
